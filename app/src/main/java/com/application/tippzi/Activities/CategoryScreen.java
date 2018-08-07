@@ -56,20 +56,9 @@ public class CategoryScreen extends AbstractActivity {
         sign_out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences pref = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = pref.edit();
-                editor.putString(USERID, "");
-                editor.putString(USERTYPE, "Customer");
-                editor.commit();
-
-                GD.category_option = "";
-
-                if(mServiceIntent != null)
-                    stopService(mServiceIntent);
-
-                Intent backintent = new Intent(getApplicationContext(), SignInScreen.class);
-                backintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(backintent);
+                Intent intent = new Intent(getApplicationContext(), CustomerDashboardScreen.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
                 overridePendingTransition(R.anim.back_left_out, R.anim.back_right_in);
                 finish();
             }

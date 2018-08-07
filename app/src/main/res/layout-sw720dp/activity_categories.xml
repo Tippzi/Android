@@ -34,12 +34,12 @@
         android:id="@+id/tv_sign_out"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Sign out"
+        android:layout_marginBottom="30dp"
+        android:text="Back"
         android:textColor="@color/White"
-        android:textStyle="bold"
-        android:textSize="@dimen/button_text_sw720"/>
+        android:textSize="@dimen/button_text_sw720"
+        android:textStyle="bold" />
 
 </RelativeLayout>

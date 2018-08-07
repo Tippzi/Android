@@ -48,24 +48,35 @@
         android:background="@mipmap/ico_tippzi_go" />
 
     <ImageView
+        android:id="@+id/iv_tippzi_go"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_above="@+id/tv_powered_by_tippzigo"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="11dp"
-        android:background="@mipmap/ico_app_logo"
-        android:id="@+id/iv_tippzi_go" />
+        android:layout_marginBottom="13dp"
+        android:background="@mipmap/ico_tippzi_circle" />
 
     <TextView
         android:id="@+id/tv_powered_by_tippzigo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="TippziGO is powered by Crypzi"
         android:textColor="#666666"
         android:textSize="@dimen/s_comment_text"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_above="@+id/tv_sign_out" />
 
+    <TextView
+        android:id="@+id/tv_sign_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Sign out"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/button_text"/>
 </RelativeLayout>

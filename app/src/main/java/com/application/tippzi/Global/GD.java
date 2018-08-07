@@ -24,6 +24,8 @@ public class GD {
 //    public static String downloadUrl = "http://192.168.1.102/Tippzi/upload/";
     public static String BaseUrl = "http://162.13.192.72/Tippzi/api/authorize/";
     public static String downloadUrl = "http://162.13.192.72/Tippzi/upload/";
+//    public static String coinApi = "http://192.168.1.101/tippzi/public/api/coin/";
+    public static String coinApi = "http://162.13.192.72/api/coin/";
 
     public static BusinessModel businessModel = new BusinessModel();
     public static CustomerModel customerModel = new CustomerModel();

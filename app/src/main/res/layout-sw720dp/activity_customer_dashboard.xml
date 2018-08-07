@@ -18,12 +18,12 @@
         android:text="Select a Category"
         android:textColor="@color/White"
         android:textStyle="bold"
-        android:textSize="@dimen/button_text"/>
+        android:textSize="@dimen/button_text_sw720"/>
 
     <ImageView
         android:id="@+id/iv_find_venue"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="240dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/tv_title_create_account"
@@ -33,27 +33,27 @@
     <ImageView
         android:id="@+id/iv_find_deal"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="240dp"
         android:layout_marginTop="5dp"
         android:layout_below="@+id/iv_find_venue"
-        android:background="@mipmap/img_find_deal"/>
+        android:background="@mipmap/img_coming_soon"/>
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="45dp"
+        android:layout_width="200dp"
+        android:layout_height="95dp"
         android:layout_above="@+id/imageView2"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp"
         android:background="@mipmap/ico_tippzi_go" />
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_above="@+id/tv_powered_by_tippzigo"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="11dp"
-        android:background="@mipmap/ico_app_logo"
+        android:background="@mipmap/ico_tippzi_circle"
         android:id="@+id/imageView2" />
 
     <TextView
@@ -64,7 +64,7 @@
         android:layout_centerHorizontal="true"
         android:text="TippziGO is powered by Crypzi"
         android:textColor="#666666"
-        android:textSize="@dimen/s_comment_text"
+        android:textSize="@dimen/edit_text"
         android:textStyle="bold" />
 
     <TextView
@@ -77,6 +77,6 @@
         android:text="Sign out"
         android:textColor="@color/White"
         android:textStyle="bold"
-        android:textSize="@dimen/button_text"/>
+        android:textSize="@dimen/button_text_sw720"/>
 
 </RelativeLayout>
