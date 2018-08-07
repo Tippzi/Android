@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_tutorial4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/img_toturial4"
+    tools:context="com.application.tippzi.Activities.SplashScreen">
+
+    <TextView
+        android:id="@+id/btn_skip_tutorial4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lay_circle"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        android:text="Skip tutorial"
+        android:textColor="@color/BoldHint"
+        android:textStyle="bold"
+        android:textSize="@dimen/comment_text_sw720"/>
+
+</RelativeLayout>

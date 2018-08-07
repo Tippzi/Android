@@ -1,0 +1,78 @@
+<resources>
+
+    <declare-styleable name="MapViewPager">
+        <attr name="markersAlpha" format="float" />
+        <attr name="viewPagerWeight" format="integer" />
+        <attr name="mapWeight" format="integer" />
+        <attr name="mapGravity" format="integer" />
+        <attr name="mapOffset" format="dimension" />
+        <attr name="mapPaddingLeft" format="dimension" />
+        <attr name="mapPaddingTop" format="dimension" />
+        <attr name="mapPaddingRight" format="dimension" />
+        <attr name="mapPaddingBottom" format="dimension" />
+    </declare-styleable>
+
+    <attr name="src" format="reference" />
+    <attr name="cutType" format="enum">
+        <enum name="linePositive" value="0" />
+        <enum name="lineNegative" value="1" />
+        <enum name="arc" value="2" />
+        <enum name="wave" value="3" />
+    </attr>
+    <attr name="cutHeight" format="dimension" />
+    <attr name="cutCount" format="integer" />
+
+    <attr name="autoTint" format="boolean" />
+    <attr name="tintColor" format="color" />
+    <attr name="tintAlpha" format="integer" />
+
+    <attr name="titleText" format="string" />
+    <attr name="titleTextColor" format="color" />
+    <attr name="titleTextSize" format="dimension" />
+    <attr name="subTitleText" format="string" />
+    <attr name="subTitleTextColor" format="color" />
+    <attr name="subTitleTextSize" format="dimension" />
+    <attr name="textMargin" format="dimension" />
+    <attr name="lineSpacing" format="dimension" />
+
+    <attr name="openFactor" format="float"/>
+
+
+    <declare-styleable name="GlazyImageView">
+
+        <attr name="src" />
+
+        <attr name="cutType" />
+        <attr name="cutHeight" />
+        <attr name="cutCount" />
+
+        <attr name="autoTint" />
+        <attr name="tintColor" />
+        <attr name="tintAlpha" />
+
+        <attr name="titleText" />
+        <attr name="titleTextColor" />
+        <attr name="titleTextSize" />
+        <attr name="subTitleText" />
+        <attr name="subTitleTextColor" />
+        <attr name="subTitleTextSize" />
+        <attr name="textMargin" />
+        <attr name="lineSpacing" />
+
+        <attr name="openFactor" />
+
+    </declare-styleable>
+
+
+
+    <declare-styleable name="GlazyViewPager">
+
+    </declare-styleable>
+
+    <declare-styleable name="SwipeAdapterView">
+        <attr name="swipe_style" format="reference" />
+        <attr name="rotation_degrees" format="float" />
+        <attr name="min_adapter_stack" format="integer" />
+        <attr name="max_visible" format="integer" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/img_purple_curve_large"
+    tools:context="com.application.tippzi.Activities.SplashScreen">
+
+    <ImageView
+        android:id="@+id/iv_back_edit_description"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@mipmap/ico_back"/>
+
+    <TextView
+        android:id="@+id/tv_title_create_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="Edit Business Profile"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/button_text_sw720"/>
+
+    <ImageView
+        android:id="@+id/iv_back_up_edit_description"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:background="@mipmap/ico_back_up"/>
+
+    <TextView
+        android:id="@+id/tv_business_name_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title_create_account"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp"
+        android:text="The Hoxton Pony"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/business_name_sw720"/>
+
+    <LinearLayout
+        android:id="@+id/lay_circle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_below="@+id/tv_business_name_description"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/circle_shape_1"
+            android:textColor="#fff"/>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/dotted"
+            android:layerType="software" />
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/circle_shape_1"
+            android:textColor="#fff"/>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/dotted"
+            android:layerType="software" />
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/circle_shape_second"
+            android:textColor="#fff"/>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/dotted"
+            android:layerType="software" />
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/circle_shape_second"
+            android:textColor="#fff"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_comment_open_hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lay_circle"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="Briefly describe your business?"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/comment_text_sw600"/>
+
+    <EditText
+        android:id="@+id/ed_business_description_edit"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="left"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:maxLines="4"
+        android:layout_below="@+id/tv_comment_open_hour"
+        android:background="@drawable/rect_edittext_active"
+        android:hint="Brief Description"
+        android:inputType="textMultiLine"
+        android:textColor="@color/Dark"
+        android:textColorHint="@color/Dark"
+        android:textSize="@dimen/edit_text_sw720"/>
+
+    <TextView
+        android:id="@+id/tv_comment_music_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ed_business_description_edit"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="What type music do you play?"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/comment_text_sw600"/>
+
+    <EditText
+        android:id="@+id/ed_business_music_edit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edittext_height_sw720"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_below="@+id/tv_comment_music_edit"
+        android:background="@drawable/rect_edittext_active"
+        android:hint="Type of music played"
+        android:inputType="text"
+        android:textColor="@color/Dark"
+        android:textColorHint="@color/Dark"
+        android:textSize="@dimen/edit_text_sw720"/>
+
+    <TextView
+        android:id="@+id/tv_comment_comma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ed_business_music_edit"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="Please separate each entry with a comma"
+        android:textColor="@color/YellowPink"
+        android:textStyle="bold"
+        android:textSize="@dimen/comment_text_sw600"/>
+
+    <TextView
+        android:id="@+id/btn_continue_edit_account"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height_sw720"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center|center_vertical"
+        android:background="@drawable/rect_button_active"
+        android:text="Continue"
+        android:textStyle="bold"
+        android:textColor="@drawable/btn_selector"
+        android:textSize="@dimen/button_text_sw720"/>
+
+</RelativeLayout>

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/img_purple_curve_large"
+    tools:context="com.application.tippzi.Activities.SplashScreen">
+
+    <ImageView
+        android:id="@+id/iv_back_edit_open_hour"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@mipmap/ico_back"/>
+
+    <TextView
+        android:id="@+id/tv_title_create_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="Edit Business Profile"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/button_text_sw720"/>
+
+    <ImageView
+        android:id="@+id/iv_back_up_edit_open_hour"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:background="@mipmap/ico_back_up"/>
+
+    <TextView
+        android:id="@+id/tv_business_name_open_hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title_create_account"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp"
+        android:text="The Hoxton Pony"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/business_name_sw720"/>
+
+    <LinearLayout
+        android:id="@+id/lay_circle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_below="@+id/tv_business_name_open_hour"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/circle_shape_1"
+            android:textColor="#fff"/>
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/dotted"
+            android:layerType="software" />
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/circle_shape_1"
+            android:textColor="#fff"/>
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/dotted"
+            android:layerType="software" />
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/circle_shape_1"
+            android:textColor="#fff"/>
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/dotted"
+            android:layerType="software" />
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/circle_shape_second"
+            android:textColor="#fff"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_comment_open_hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lay_circle"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="What are your opening hours?"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/comment_text_sw720"/>
+
+    <TextView
+        android:id="@+id/tv_comment_swipe_change_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_comment_open_hour"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="swipe to change days"
+        android:textColor="@color/YellowPink"
+        android:textStyle="bold"
+        android:textSize="@dimen/s_comment_text_sw720"/>
+
+    <com.wefika.horizontalpicker.HorizontalPicker
+        android:id="@+id/picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/business_name"
+        android:layout_below="@+id/tv_comment_swipe_change_day"
+        android:layout_marginTop="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="3"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:values="@array/values"
+        app:dividerSize="10dp"
+        app:sideItems="@integer/numSideItems"/>
+
+    <LinearLayout
+        android:id="@+id/lay_open"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/picker"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/lay_opentime1"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="30dp"
+            android:gravity="center"
+            android:background="@drawable/rect_edittext_inactive">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lay_circle"
+                android:text="Open from"
+                android:textColor="@color/Pink"
+                android:textStyle="bold"
+                android:textSize="@dimen/button_text_sw720"/>
+
+            <TextView
+                android:id="@+id/tv_open_start_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lay_circle"
+                android:hint="00:00"
+                android:textColor="@color/HintBackground"
+                android:textColorHint="@color/Pink"
+                android:textStyle="bold"
+                android:textSize="72sp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lay_opentime2"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="30dp"
+            android:gravity="center"
+            android:background="@drawable/rect_edittext_inactive">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lay_circle"
+                android:text="Open until"
+                android:textColor="@color/Pink"
+                android:textStyle="bold"
+                android:textSize="@dimen/button_text_sw720"/>
+
+            <TextView
+                android:id="@+id/tv_open_end_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lay_circle"
+                android:hint="00:00"
+                android:textColor="@color/HintBackground"
+                android:textColorHint="@color/Pink"
+                android:textStyle="bold"
+                android:textSize="72sp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lay_close"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/rect_edittext_inactive"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lay_circle"
+                android:text="CLOSED"
+                android:textColor="@color/Pink"
+                android:textStyle="bold"
+                android:textSize="72sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_switch_open_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lay_open"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="We're closed today"
+        android:textColor="@color/YellowPink"
+        android:textStyle="bold"
+        android:textSize="@dimen/comment_text_sw720"/>
+
+    <CheckBox
+        android:id="@+id/ch_copy_paste"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tv_switch_open_hours"
+        android:layout_centerHorizontal="true"
+        android:text="Copy and paste this open hours for all days"
+        android:textColor="@color/YellowPink"
+        android:textStyle="bold"
+        android:textSize="@dimen/m_comment_text_sw720"/>
+
+    <TextView
+        android:id="@+id/btn_continue_edit_open_hour"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height_sw720"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center|center_vertical"
+        android:background="@drawable/rect_button_active"
+        android:text="Continue"
+        android:textStyle="bold"
+        android:textColor="@drawable/btn_selector"
+        android:textSize="@dimen/button_text_sw720"/>
+
+</RelativeLayout>

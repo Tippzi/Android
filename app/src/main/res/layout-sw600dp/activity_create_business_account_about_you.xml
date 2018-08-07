@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/img_purple_curve_large"
+    tools:context="com.application.tippzi.Activities.SplashScreen">
+
+    <ImageView
+        android:id="@+id/iv_back_business_about_you"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@mipmap/ico_back"/>
+
+    <TextView
+        android:id="@+id/tv_title_create_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="Create a Business Account"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/group_text_sw600"/>
+
+    <ImageView
+        android:id="@+id/btn_back_up_business_about_you"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:background="@mipmap/ico_back_up"/>
+
+    <ImageView
+        android:id="@+id/btn_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tv_title_create_account"
+        android:layout_centerHorizontal="true"
+        android:background="@mipmap/ico_logo"/>
+
+    <TextView
+        android:id="@+id/tv_comment_about_yourself"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/btn_logo"
+        android:text="Tell us about yourself"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/comment_text_sw600"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tv_comment_about_yourself">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/ed_business_username"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height_sw6000"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_below="@+id/tv_comment_about_yourself"
+                android:background="@drawable/rect_edittext_inactive"
+                android:hint="Your name"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                android:textColor="@color/Dark"
+                android:textColorHint="@color/Bara"
+                android:textSize="@dimen/comment_text_sw600"/>
+
+            <EditText
+                android:id="@+id/ed_business_email"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height_sw6000"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:enabled="false"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_below="@+id/ed_business_username"
+                android:background="@drawable/rect_edittext_inactive"
+                android:hint="Your email"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/Dark"
+                android:textColorHint="@color/Bara"
+                android:textSize="@dimen/comment_text_sw600"/>
+
+            <EditText
+                android:id="@+id/ed_business_telephone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height_sw6000"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:enabled="false"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_below="@+id/ed_business_email"
+                android:background="@drawable/rect_edittext_inactive"
+                android:hint="Your telephone"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                android:textColor="@color/Dark"
+                android:textColorHint="@color/Bara"
+                android:textSize="@dimen/comment_text_sw600"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height_sw6000"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/ed_business_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edittext_height_sw6000"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:enabled="false"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:background="@drawable/rect_edittext_inactive"
+                    android:hint="Your password"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:textColor="@color/Dark"
+                    android:textColorHint="@color/Bara"
+                    android:textSize="@dimen/comment_text_sw600"/>
+
+                <ImageView
+                    android:id="@+id/iv_eye_password_about_you"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@mipmap/ico_unvisibility_eye"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_comment_about_business"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/ed_business_password"
+                android:text="Tell us about your business"
+                android:textColor="@color/White"
+                android:textStyle="bold"
+                android:textSize="@dimen/comment_text_sw600"/>
+
+            <EditText
+                android:id="@+id/ed_business_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height_sw6000"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:enabled="false"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_below="@+id/tv_comment_about_business"
+                android:background="@drawable/rect_edittext_inactive"
+                android:hint="Business Name"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                android:textColor="@color/Dark"
+                android:textColorHint="@color/Bara"
+                android:textSize="@dimen/comment_text_sw600"/>
+
+            <Spinner
+                android:id="@+id/sp_category"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height_sw6000"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:enabled="false"
+                android:gravity="center_vertical"
+                android:background="@drawable/rect_edittext_inactive"
+                android:textSize="@dimen/comment_text_sw600">
+            </Spinner>
+
+            <AutoCompleteTextView
+                android:id="@+id/ed_business_service"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height_sw6000"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:enabled="false"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_below="@+id/sp_category"
+                android:background="@drawable/rect_edittext_inactive"
+                android:hint="Business Service"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                android:textColor="@color/Dark"
+                android:textColorHint="@color/Bara"
+                android:textSize="@dimen/comment_text_sw600"/>
+
+            <LinearLayout
+                android:id="@+id/lay_post_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ed_business_name"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/ed_postal_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edittext_height_sw6000"
+                    android:enabled="false"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/rect_edittext_inactive"
+                    android:hint="Post code"
+                    android:inputType="text"
+                    android:imeOptions="actionDone"
+                    android:textColor="@color/Dark"
+                    android:textColorHint="@color/Bara"
+                    android:textSize="@dimen/comment_text_sw600"/>
+
+                <TextView
+                    android:id="@+id/btn_look_up"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edittext_height_sw6000"
+                    android:enabled="false"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center|center_vertical"
+                    android:background="@drawable/rect_black_button"
+                    android:text="Lookup"
+                    android:textStyle="bold"
+                    android:textColor="@drawable/btn_selector"
+                    android:textSize="@dimen/comment_text_sw600"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btn_enter_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_below="@+id/lay_post_code"
+                android:layout_centerHorizontal="true"
+                android:text="enter address manually"
+                android:enabled="false"
+                android:textColor="@color/YellowPink"
+                android:textStyle="bold"
+                android:textSize="@dimen/comment_text_sw600"/>
+
+            <EditText
+                android:id="@+id/ed_business_address"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="@dimen/edittext_height_sw6000"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_below="@+id/btn_enter_address"
+                android:background="@drawable/rect_edittext_inactive"
+                android:hint="Business Address"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:textColor="@color/Dark"
+                android:textColorHint="@color/Pink"
+                android:textSize="@dimen/comment_text_sw600"/>
+
+            <TextView
+                android:id="@+id/btn_create_business_account"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height_sw600"
+                android:enabled="false"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:gravity="center|center_vertical"
+                android:background="@drawable/rect_button_inactive"
+                android:text="Create a Business Account"
+                android:textStyle="bold"
+                android:textColor="@color/YellowPink"
+                android:textSize="@dimen/button_text_sw600"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

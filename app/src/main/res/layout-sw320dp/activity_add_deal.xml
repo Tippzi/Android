@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/img_purple_curve_large"
+    tools:context="com.application.tippzi.Activities.SplashScreen">
+
+    <ImageView
+        android:id="@+id/iv_back_add_deal"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@mipmap/ico_back"/>
+
+    <TextView
+        android:id="@+id/tv_title_add_deal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="Add a Deal"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/button_text"/>
+
+    <TextView
+        android:id="@+id/tv_bar_title_add_deal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title_add_deal"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:text="The Hoxton Pony"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/business_name"/>
+
+    <TextView
+        android:id="@+id/tv_comment_add_deal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_bar_title_add_deal"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:text="Tell us about your deal"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/comment_text"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tv_comment_add_deal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/ed_deal_title_add_deal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:imeOptions="actionNext"
+                android:layout_below="@+id/tv_comment_add_deal"
+                android:background="@drawable/rect_edittext_inactive"
+                android:hint="What is your deal?"
+                android:inputType="text"
+                android:textColor="@color/Dark"
+                android:textColorHint="@color/Pink"
+                android:textSize="@dimen/edit_text"/>
+
+            <EditText
+                android:id="@+id/ed_deal_description_add_deal"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:enabled="false"
+                android:maxLines="4"
+                android:singleLine="false"
+                android:gravity="left"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:imeOptions="actionNext"
+                android:layout_below="@+id/ed_deal_title_add_deal"
+                android:background="@drawable/rect_edittext_inactive"
+                android:hint="Additional info and conditions"
+                android:inputType="textMultiLine"
+                android:textColor="@color/Dark"
+                android:textColorHint="@color/Pink"
+                android:textSize="@dimen/edit_text"/>
+
+            <LinearLayout
+                android:id="@+id/lay_duration_quantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ed_deal_description_add_deal"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/ed_duration_add_deal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edittext_height"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:enabled="false"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/rect_edittext_inactive"
+                    android:hint="Expiry"
+                    android:inputType="text"
+                    android:textColor="@color/Dark"
+                    android:textColorHint="@color/Pink"
+                    android:textSize="@dimen/edit_text"/>
+
+                <EditText
+                    android:id="@+id/ed_quantity_add_deal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edittext_height"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:enabled="false"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/rect_edittext_inactive"
+                    android:hint="Quantity"
+                    android:maxLength="4"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:textColor="@color/Dark"
+                    android:textColorHint="@color/Pink"
+                    android:textSize="@dimen/edit_text"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_comment_deal_days"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_below="@+id/lay_duration_quantity"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:text="What days is your deal valid?"
+                android:textColor="@color/White"
+                android:textStyle="bold"
+                android:textSize="@dimen/comment_text"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/tv_comment_deal_days"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/mon_add_deal"
+                    android:layout_width="@dimen/edittext_height"
+                    android:layout_height="@dimen/edittext_height"
+                    android:enabled="false"
+                    android:background="@drawable/rect_edittext_inactive"
+                    android:gravity="center"
+                    android:text="M"
+                    android:textSize="@dimen/button_text"
+                    android:textStyle="bold"
+                    android:textColor="@color/Pink"/>
+
+                <TextView
+                    android:id="@+id/tue_add_deal"
+                    android:layout_width="@dimen/edittext_height"
+                    android:layout_height="@dimen/edittext_height"
+                    android:layout_marginLeft="5dp"
+                    android:enabled="false"
+                    android:background="@drawable/rect_edittext_inactive"
+                    android:gravity="center"
+                    android:text="T"
+                    android:textSize="@dimen/button_text"
+                    android:textStyle="bold"
+                    android:textColor="@color/Pink"/>
+
+                <TextView
+                    android:id="@+id/wed_add_deal"
+                    android:layout_width="@dimen/edittext_height"
+                    android:layout_height="@dimen/edittext_height"
+                    android:layout_marginLeft="5dp"
+                    android:enabled="false"
+                    android:background="@drawable/rect_edittext_inactive"
+                    android:gravity="center"
+                    android:text="W"
+                    android:textSize="@dimen/button_text"
+                    android:textStyle="bold"
+                    android:textColor="@color/Pink"/>
+
+                <TextView
+                    android:id="@+id/thur_add_deal"
+                    android:layout_width="@dimen/edittext_height"
+                    android:layout_height="@dimen/edittext_height"
+                    android:layout_marginLeft="5dp"
+                    android:enabled="false"
+                    android:background="@drawable/rect_edittext_inactive"
+                    android:gravity="center"
+                    android:text="T"
+                    android:textSize="@dimen/button_text"
+                    android:textStyle="bold"
+                    android:textColor="@color/Pink"/>
+
+                <TextView
+                    android:id="@+id/fri_add_deal"
+                    android:layout_width="@dimen/edittext_height"
+                    android:layout_height="@dimen/edittext_height"
+                    android:layout_marginLeft="5dp"
+                    android:enabled="false"
+                    android:background="@drawable/rect_edittext_inactive"
+                    android:gravity="center"
+                    android:text="F"
+                    android:textSize="@dimen/button_text"
+                    android:textStyle="bold"
+                    android:textColor="@color/Pink"/>
+
+                <TextView
+                    android:id="@+id/sat_add_deal"
+                    android:layout_width="@dimen/edittext_height"
+                    android:layout_height="@dimen/edittext_height"
+                    android:layout_marginLeft="5dp"
+                    android:enabled="false"
+                    android:background="@drawable/rect_edittext_inactive"
+                    android:gravity="center"
+                    android:text="S"
+                    android:textSize="@dimen/button_text"
+                    android:textStyle="bold"
+                    android:textColor="@color/Pink"/>
+
+                <TextView
+                    android:id="@+id/sun_add_deal"
+                    android:layout_width="@dimen/edittext_height"
+                    android:layout_height="@dimen/edittext_height"
+                    android:layout_marginLeft="5dp"
+                    android:enabled="false"
+                    android:background="@drawable/rect_edittext_inactive"
+                    android:gravity="center"
+                    android:text="S"
+                    android:textSize="@dimen/button_text"
+                    android:textStyle="bold"
+                    android:textColor="@color/Pink"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_select_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:layout_gravity="center"
+                android:layout_below="@+id/tv_bar_title_add_deal"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:text="Select all days"
+                android:textColor="@color/YellowPink"
+                android:textStyle="bold"
+                android:textSize="@dimen/comment_text"/>
+
+            <TextView
+                android:id="@+id/btn_add_deal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:enabled="false"
+                android:gravity="center|center_vertical"
+                android:background="@drawable/rect_button_active"
+                android:text="Add a Deal"
+                android:textStyle="bold"
+                android:textColor="@color/White"
+                android:textSize="@dimen/button_text"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

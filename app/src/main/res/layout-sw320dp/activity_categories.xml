@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_customer_sign_up_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:background="@color/HintBackground"
+    tools:context="com.application.tippzi.Activities.SplashScreen">
+
+    <TextView
+        android:id="@+id/tv_title_create_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="Select a Category"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/button_text"/>
+
+    <ListView
+        android:id="@+id/lv_category"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
+        android:layout_below="@+id/tv_title_create_account">
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/tv_sign_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Sign out"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/button_text"/>
+
+</RelativeLayout>

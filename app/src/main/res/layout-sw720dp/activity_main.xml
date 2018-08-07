@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.application.tippzi.Activities.MainScreen">
+
+    <ImageView
+        android:id="@+id/iv_testimage"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:background="@mipmap/ima_background"/>
+
+    <TextView
+        android:id="@+id/btn_create_account"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_height="@dimen/button_height_sw720"
+        android:layout_marginBottom="150dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center|center_vertical"
+        android:background="@drawable/rect_sign_up_button"
+        android:text="Create an account"
+        android:textStyle="bold"
+        android:textColor="@drawable/btn_selector"
+        android:textSize="@dimen/button_text_sw720"/>
+
+    <TextView
+        android:id="@+id/btn_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height_sw720"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center|center_vertical"
+        android:background="@drawable/rect_button"
+        android:text="Sign in"
+        android:textStyle="bold"
+        android:textColor="@drawable/btn_selector"
+        android:textSize="@dimen/button_text_sw720"/>
+
+</RelativeLayout>

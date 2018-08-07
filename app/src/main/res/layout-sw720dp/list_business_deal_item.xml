@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/transperent_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:orientation="vertical"
+        android:background="@drawable/rect_upload_photo">
+        <TextView
+            android:id="@+id/tv_deal_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Free entry before 11pm"
+            android:textSize="42sp"
+            android:textColor="@color/HintBackground"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_deal_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Lorem ipsum dolor sit amet..."
+            android:textSize="@dimen/edit_text_sw720"
+            android:textColor="@color/Dark"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_valid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Valid Mon, Wed, Fri Exp : 30 Oct"
+            android:textSize="@dimen/s_comment_text_sw720"
+            android:textColor="@color/YellowPink"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/dotted_black"
+            android:layerType="software" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@mipmap/ico_wink"/>
+
+                <TextView
+                    android:id="@+id/tv_wink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="5"
+                    android:textSize="@dimen/comment_text_sw720"
+                    android:textColor="@color/Dark"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="40dp"
+                    android:background="@mipmap/ico_redeem"/>
+
+                <TextView
+                    android:id="@+id/tv_redeem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="5"
+                    android:textSize="@dimen/comment_text_sw720"
+                    android:textColor="@color/Dark"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="40dp"
+                    android:background="@mipmap/ico_wallet"/>
+
+                <TextView
+                    android:id="@+id/tv_wallet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="5"
+                    android:textSize="@dimen/comment_text_sw720"
+                    android:textColor="@color/Dark"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1.5">
+                <TextView
+                    android:id="@+id/btn_edit_deal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edittext_height_sw720"
+                    android:layout_marginRight="10dp"
+                    android:layout_below="@+id/ed_password_sign_in"
+                    android:gravity="center|center_vertical"
+                    android:background="@drawable/rect_button"
+                    android:text="Edit Deal"
+                    android:textStyle="bold"
+                    android:textColor="@drawable/btn_selector"
+                    android:textSize="@dimen/edit_text_sw720"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_remove_deal"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@mipmap/ico_remove_wallet"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

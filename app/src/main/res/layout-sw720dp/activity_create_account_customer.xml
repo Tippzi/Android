@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_customer_sign_up_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/HintBackground"
+    tools:context="com.application.tippzi.Activities.SplashScreen">
+
+    <ImageView
+        android:id="@+id/iv_back_create_account_customer"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@mipmap/ico_back"/>
+
+    <TextView
+        android:id="@+id/tv_title_create_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="Create an Account"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/button_text_sw720"/>
+
+    <ImageView
+        android:id="@+id/btn_back_up_customer_sign_up"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_alignParentRight="true"
+        android:background="@mipmap/ico_back_up"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_below="@+id/tv_title_create_account">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/ed_customer_name_create"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height_sw720"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:background="@drawable/rect_edittext_black_inactive"
+                android:hint="Your Name"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:textColor="@color/Dark"
+                android:textColorHint="@color/Dark"
+                android:textSize="@dimen/edit_text_sw720"/>
+
+            <EditText
+                android:id="@+id/ed_customer_email_create"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height_sw720"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_below="@+id/ed_customer_name_create"
+                android:background="@drawable/rect_edittext_black_inactive"
+                android:hint="Your email"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/Dark"
+                android:textColorHint="@color/Dark"
+                android:textSize="@dimen/edit_text_sw720"/>
+
+            <Spinner
+                android:id="@+id/sp_gender"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height_sw720"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/rect_edittext_black_inactive"
+                android:layout_below="@+id/ed_customer_email_create"
+                android:textSize="@dimen/edit_text_sw720">
+            </Spinner>
+
+            <EditText
+                android:id="@+id/ed_customer_username_create"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height_sw720"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_below="@+id/sp_gender"
+                android:background="@drawable/rect_edittext_black_inactive"
+                android:hint="Choose a username"
+                android:inputType="text"
+                android:textColor="@color/Dark"
+                android:textColorHint="@color/Dark"
+                android:textSize="@dimen/edit_text_sw720"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height_sw720"
+                android:layout_marginTop="30dp">
+
+                <EditText
+                    android:id="@+id/ed_customer_password_create"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edittext_height_sw720"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:background="@drawable/rect_edittext_black_inactive"
+                    android:hint="Choose a password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/Dark"
+                    android:textColorHint="@color/Dark"
+                    android:textSize="@dimen/edit_text_sw720"/>
+
+                <ImageView
+                    android:id="@+id/iv_eye_password_customer_sign_up"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="55dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@mipmap/ico_unvisibility_eye"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height_sw720"
+                android:layout_marginTop="30dp">
+
+                <EditText
+                    android:id="@+id/ed_customer_cinfirm_password_create"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edittext_height_sw720"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:background="@drawable/rect_edittext_black_inactive"
+                    android:hint="Confirm your password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/Dark"
+                    android:textColorHint="@color/Dark"
+                    android:textSize="@dimen/comment_text_sw720"/>
+
+                <ImageView
+                    android:id="@+id/iv_eye_password_confirm_customer_sign_up"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="55dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@mipmap/ico_unvisibility_eye"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/btn_create_business_account"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height_sw720"
+                android:layout_marginTop="60dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:gravity="center|center_vertical"
+                android:background="@drawable/rect_black_button_inactive"
+                android:text="Create an Account"
+                android:textStyle="bold"
+                android:textColor="@color/BoldHint"
+                android:textSize="@dimen/button_text_sw720"/>
+
+            <TextView
+                android:id="@+id/tv_term_condition_sign_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Please click here for our terms and conditions and our terms of use"
+                android:textColor="@color/White"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

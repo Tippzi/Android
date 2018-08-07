@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/HintBackground"
+    tools:context="com.application.tippzi.Activities.SplashScreen">
+
+    <ImageView
+        android:id="@+id/iv_back_sign_in"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@mipmap/ico_back"/>
+
+    <TextView
+        android:id="@+id/tv_title_sign_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="Sign In"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/button_text_sw480"/>
+
+    <ImageView
+        android:id="@+id/btn_twitter_sign_in"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tv_title_sign_in"
+        android:layout_centerHorizontal="true"
+        android:background="@mipmap/ico_twitter"/>
+
+    <ImageView
+        android:id="@+id/btn_facebook_sign_in"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/tv_title_sign_in"
+        android:layout_toLeftOf="@+id/btn_twitter_sign_in"
+        android:background="@mipmap/ico_facebook"/>
+
+    <ImageView
+        android:id="@+id/btn_google_sign_in"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/tv_title_sign_in"
+        android:layout_toRightOf="@+id/btn_twitter_sign_in"
+        android:background="@mipmap/ico_google"/>
+
+    <TextView
+        android:id="@+id/tv_comment_old_fashion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/btn_twitter_sign_in"
+        android:text="or sign in with username and password"
+        android:textColor="@color/Dark"
+        android:textStyle="bold"
+        android:textSize="@dimen/comment_text_sw480"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tv_comment_old_fashion">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/ed_username_sign_in"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height_sw_480"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:background="@drawable/rect_edittext_active"
+                android:hint="Username or Email"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/Dark"
+                android:textColorHint="@color/Dark"
+                android:textSize="@dimen/edit_text_sw480"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height_sw_480"
+                android:layout_marginTop="15dp">
+
+                <EditText
+                    android:id="@+id/ed_password_sign_in"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edittext_height_sw_480"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:background="@drawable/rect_edittext_active"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/Dark"
+                    android:textColorHint="@color/Dark"
+                    android:textSize="@dimen/edit_text_sw480"/>
+
+                <ImageView
+                    android:id="@+id/iv_eye_password_sign_in"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@mipmap/ico_unvisibility_eye"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/btn_sign_in"
+                android:layout_width="match_parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_height="@dimen/button_height_sw_480"
+                android:layout_below="@+id/ed_password_sign_in"
+                android:gravity="center|center_vertical"
+                android:background="@drawable/rect_button"
+                android:text="Sign In"
+                android:textStyle="bold"
+                android:textColor="@drawable/btn_selector"
+                android:textSize="@dimen/button_text_sw480"/>
+
+            <TextView
+                android:id="@+id/tv_forgot_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/btn_sign_in"
+                android:text="Forgot Password"
+                android:textColor="@color/Dark"
+                android:textStyle="bold"
+                android:textSize="@dimen/comment_text_sw480"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/lay_term_condition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_term_condition_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Please click here for our terms and conditions and our terms of use"
+            android:textColor="@color/White"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

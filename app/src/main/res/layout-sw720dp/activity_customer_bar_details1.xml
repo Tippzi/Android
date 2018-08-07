@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@mipmap/ima_pattern"
+    android:isScrollContainer="true"
+    tools:context="com.application.tippzi.Activities.SplashScreen">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_back_bar_details"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="30dp"
+            android:background="@mipmap/ico_back"/>
+
+        <TextView
+            android:id="@+id/tv_title_cliam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/iv_back_bar_details"
+            android:text="The Hoxton Pony"
+            android:textColor="@color/White"
+            android:textStyle="bold"
+            android:textSize="@dimen/business_name_sw720"/>
+        <ImageView
+            android:id="@+id/iv_clock"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="80dp"
+            android:layout_below="@+id/tv_title_cliam"
+            android:background="@mipmap/ico_clock"/>
+
+        <TextView
+            android:id="@+id/tv_open_time_claim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="37dp"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/iv_clock"
+            android:layout_below="@+id/tv_title_cliam"
+            android:text="6am - 2pm"
+            android:textColor="@color/White"
+            android:textSize="@dimen/s_comment_text_sw720"/>
+
+        <TextView
+            android:id="@+id/tv_walk_time_claim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="37dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="80dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_title_cliam"
+            android:text="2 min walk"
+            android:textColor="@color/White"
+            android:textSize="@dimen/s_comment_text_sw720"/>
+
+        <LinearLayout
+            android:id="@+id/lay_shadow2"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:orientation="vertical"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:background="@drawable/rect_mapview3"
+            android:layout_marginTop="220dp">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginLeft="90dp"
+            android:layout_marginRight="90dp"
+            android:gravity="center"
+            android:background="@drawable/rect_mapview2"
+            android:layout_marginTop="210dp">
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_count_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/lay_shadow2"
+            android:text="1 of 3 deals"
+            android:textColor="@color/YellowPink"
+            android:textSize="@dimen/comment_text_sw720"/>
+
+        <ImageView
+            android:id="@+id/iv_left"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/ico_previous"
+            android:layout_toLeftOf="@+id/tv_count_page"
+            android:layout_below="@+id/lay_shadow2"/>
+
+        <ImageView
+            android:id="@+id/iv_right"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/ico_forward"
+            android:layout_toRightOf="@+id/tv_count_page"
+            android:layout_below="@+id/lay_shadow2"/>
+
+
+
+        <com.application.tippzi.swipeview.SwipeAdapterView
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="725dp"
+            app:rotation_degrees="15.5">
+
+        </com.application.tippzi.swipeview.SwipeAdapterView>
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,134 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white">
+
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/map1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:mapbox_myLocation="true"/>
+    <ImageView
+        android:id="@+id/iv_go_category"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="45dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="25dp"
+        android:background="@mipmap/ico_category"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/rect_search"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_switch_search"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/ico_bar_search"/>
+
+        <com.application.tippzi.Activities.CustomAutoCompleteTextView
+            android:id="@+id/ed_search_google_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/iv_switch_search"
+            android:inputType="text"
+            android:textColor="@color/HintBackground"
+            android:textColorHint="@color/Hint"
+            android:textSize="@dimen/edit_text_sw720"
+            android:background="@drawable/rect_search"
+            android:paddingLeft="20dp"
+            android:hint="Search a bar"/>
+
+        <ImageView
+            android:id="@+id/iv_search_google_map"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/ico_search"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_cu_wallet"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="45dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:background="@mipmap/ico_wallet_black"/>
+
+    <TextView
+        android:id="@+id/tv_count_wallet"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="33"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/m_comment_text_sw720"
+        android:layout_marginTop="17dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/rect_count_wallet"/>
+
+    <TextView
+        android:id="@+id/tv_category_title_map"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="140dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:text="Nightlife"
+        android:textSize="@dimen/m_comment_text_sw720"
+        android:textColor="@color/White"
+        android:background="@drawable/rect_black_category"/>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/myLocationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        app:backgroundTint="@color/White"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="340dp"
+        android:src="@android:drawable/ic_menu_mylocation"
+        app:borderWidth="0dp"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        app:fabSize="normal" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.6" >
+        </View>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:paddingTop="4dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:paddingBottom="18dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never" />
+
+    </LinearLayout>
+
+</FrameLayout>

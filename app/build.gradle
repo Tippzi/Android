@@ -1,0 +1,103 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    signingConfigs {
+        Tippzi {
+            keyAlias 'TippziAlias'
+            keyPassword 'tippzi'
+            storeFile file('E:/Tippzi/app/keystore.jks')
+            storePassword 'tippzi'
+        }
+    }
+
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.application.tippzi"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionName '1.0'
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.Tippzi
+        versionCode 9
+    }
+
+    buildTypes {
+        release {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFile 'E:/Tippzi/app/proguard-rules.pro'
+            signingConfig signingConfigs.Tippzi
+            debuggable false
+            jniDebuggable false
+            renderscriptDebuggable false
+            minifyEnabled false
+            pseudoLocalesEnabled false
+            zipAlignEnabled true
+        }
+        debug {
+            proguardFile 'E:/Tippzi/app/proguard-rules.pro'
+            debuggable true
+            jniDebuggable false
+            signingConfig signingConfigs.Tippzi
+            renderscriptDebuggable false
+            minifyEnabled false
+            pseudoLocalesEnabled false
+            zipAlignEnabled true
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    productFlavors {
+    }
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:multidex:1.0.2'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:5.4.1'
+    implementation('com.mapbox.mapboxsdk:mapbox-android-directions:1.0.0@aar') {
+        transitive = true
+    }
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-services:2.3.0-SNAPSHOT'
+    implementation 'com.android.support:design:23.0.1'
+    implementation 'com.google.android.gms:play-services:11.4.0'
+    implementation 'com.google.android.gms:play-services-plus:11.4.0'
+    implementation 'com.wefika:horizontal-picker:1.1.1'
+    implementation 'com.google.android.gms:play-services-maps:11.4.0'
+    implementation 'com.jude:rollviewpager:1.4.6'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.android.support:cardview-v7:23.1.1'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
+    implementation files('libs/apache-httpcomponents-httpcore.jar')
+    implementation files('libs/backendless-4.0.4.jar')
+    implementation files('libs/twitter4j-core-4.0.2.jar')
+    implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
+    implementation 'com.twitter.sdk.android:tweet-ui:3.1.1'
+    implementation 'com.twitter.sdk.android:tweet-composer:3.1.1'
+    implementation 'com.twitter.sdk.android:twitter-mopub:3.1.1'
+    // Gif Image
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.+'
+    // Existing dependencies may go here
+    implementation 'com.google.code.gson:gson:2.1'
+    implementation 'com.mindscapehq.android:raygun4android:3.0.0'
+    implementation files('libs/httpclient-4.2.1.jar')
+}
+apply plugin: 'com.google.gms.google-services'

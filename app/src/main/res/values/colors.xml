@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="HintBackground">#222222</color>
+    <color name="White">#FFFFFF</color>
+    <color name="in_Dark">#313131</color>
+    <color name="Dark">#808080</color>
+    <color name="ChongSaek">#67D74D</color>
+    <color name="YellowPink">#A476C8</color>
+    <color name="Pink">#622F8B</color>
+    <color name="inactive">#333333</color>
+    <color name="gray">#2222</color>
+
+    <color name="BoldHint">#707070</color>
+    <color name="SickHint">#F1F1F1</color>
+    <color name="Hint">#96999B</color>
+    <color name="HintWalet">#C0C0C0</color>
+
+    <color name="Bara">#65318F</color>
+
+    <drawable name="transperent_color">#00000000</drawable>
+</resources>

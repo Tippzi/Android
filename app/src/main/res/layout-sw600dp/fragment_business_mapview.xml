@@ -1,0 +1,101 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lay_select"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/lay_bottom_select"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="260dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rect_mapview4"
+            android:gravity="bottom|center_horizontal"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_remain_google_map"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:text="3 remaining Exp 22 Oct"
+                android:textColor="@color/YellowPink"
+                android:textSize="@dimen/m_comment_text_sw600"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rect_mapview5"
+            android:layout_weight="1">
+
+            <com.application.tippzi.Service.RoundedImageView
+                android:id="@+id/iv_profile_image_slider"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="30dp"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/bar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/iv_profile_image_slider"
+                android:text="The Pony"
+                android:textColor="@color/HintBackground"
+                android:textStyle="bold"
+                android:textSize="@dimen/comment_text_sw600"/>
+
+            <TextView
+                android:id="@+id/tv_bar_music_google_map"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_toRightOf="@+id/iv_profile_image_slider"
+                android:layout_below="@+id/bar_title"
+                android:text="Dance - Garage - Live DJ"
+                android:textColor="@color/Dark"
+                android:textSize="@dimen/m_comment_text_sw600"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="154dp"
+        android:background="@drawable/rect_mapview3">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="147dp"
+        android:background="@drawable/rect_mapview2">
+
+    </LinearLayout>
+
+    <com.application.tippzi.swipeview.SwipeAdapterView
+        android:id="@+id/container_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:rotation_degrees="15.5">
+
+    </com.application.tippzi.swipeview.SwipeAdapterView>
+
+</RelativeLayout>

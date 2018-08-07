@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/ima_pattern"
+    tools:context="com.application.tippzi.Activities.SplashScreen">
+
+    <ImageView
+        android:id="@+id/iv_back_ticket"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="30dp"
+        android:background="@mipmap/ico_back"/>
+
+    <TextView
+        android:id="@+id/tv_business_name_ticket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_back_ticket"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:text="The Hoxton Pony"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/business_name_sw720"/>
+
+    <ImageView
+        android:id="@+id/iv_clock"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="80dp"
+        android:layout_below="@+id/tv_business_name_ticket"
+        android:background="@mipmap/ico_clock"/>
+
+    <TextView
+        android:id="@+id/tv_open_time_this_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/iv_clock"
+        android:layout_below="@+id/tv_business_name_ticket"
+        android:text="6am - 2pm"
+        android:textColor="@color/White"
+        android:textSize="@dimen/s_comment_text_sw720"/>
+
+    <TextView
+        android:id="@+id/tv_walk_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tv_business_name_ticket"
+        android:text="2 min walk"
+        android:textColor="@color/White"
+        android:textSize="@dimen/s_comment_text_sw720"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="30dp"
+        android:layout_below="@+id/tv_walk_time"
+        android:background="@drawable/rect_edittext">
+
+        <ImageView
+            android:id="@+id/iv_close_ticket"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/ico_close_hint"
+            android:layout_alignParentRight="true"/>
+
+        <TextView
+            android:id="@+id/tv_exp_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_centerHorizontal="true"
+            android:text="Exp 18 Oct"
+            android:textColor="@color/Hint"
+            android:textStyle="bold"
+            android:textSize="@dimen/comment_text_sw720"/>
+
+        <TextView
+            android:id="@+id/tv_ticket_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/tv_exp_date"
+            android:layout_centerHorizontal="true"
+            android:text="The deal has been claimed"
+            android:textColor="@color/HintBackground"
+            android:textStyle="bold"
+            android:textSize="48sp"/>
+
+        <ImageView
+            android:id="@+id/iv_ticket_bar"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="25dp"
+            android:background="@mipmap/icon_ticket_bar"
+            android:layout_below="@+id/tv_ticket_code"/>
+
+        <ImageView
+            android:id="@+id/iv_ticket"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignLeft="@+id/textView"
+            android:layout_alignStart="@+id/textView"
+            android:layout_alignTop="@+id/tv_deal_name_ticket"
+            android:background="@mipmap/ico_ticket_active" />
+
+        <TextView
+            android:id="@+id/tv_deal_name_ticket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/iv_ticket"
+            android:layout_below="@+id/iv_ticket_bar"
+            android:text="Free entry before 11pm"
+            android:textColor="@color/HintBackground"
+            android:textStyle="bold"
+            android:textSize="@dimen/group_text_sw720"/>
+
+        <TextView
+            android:id="@+id/tv_deal_description_ticket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/iv_ticket"
+            android:layout_below="@+id/tv_deal_name_ticket"
+            android:text="Lorem ipsum dolar sit amet consectetur adipiscing elit. Cras vivarra at velit vitea ullamcorper. Fusce eu luctus"
+            android:textColor="@color/Hint"
+            android:textStyle="bold"
+            android:textSize="@dimen/comment_text_sw720"/>
+
+        <ImageView
+            android:id="@+id/iv_wink"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/iv_ticket"
+            android:layout_below="@+id/tv_deal_description_ticket"
+            android:background="@mipmap/ico_wink"/>
+
+        <TextView
+            android:id="@+id/tv_remain_deals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iv_wink"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_below="@+id/tv_deal_description_ticket"
+            android:text="Hurry, only 3 qty!"
+            android:textColor="@color/Hint"
+            android:textStyle="bold"
+            android:textSize="@dimen/s_comment_text_sw720"/>
+
+        <TextView
+            android:id="@+id/tv_expire_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="40dp"
+            android:layout_below="@+id/tv_deal_description_ticket"
+            android:text="Exp 18 Oct"
+            android:textColor="@color/Hint"
+            android:textStyle="bold"
+            android:textSize="@dimen/s_comment_text_sw720"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btn_add_wallet"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height_sw720"
+                android:layout_weight="1"
+                android:layout_marginRight="7dp"
+                android:gravity="center|center_vertical"
+                android:background="@drawable/rect_button_white"
+                android:text="Add to Wallet"
+                android:textStyle="bold"
+                android:textColor="@color/HintBackground"
+                android:textSize="@dimen/button_text_sw720"/>
+
+            <TextView
+                android:id="@+id/btn_share_deal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height_sw720"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:gravity="center|center_vertical"
+                android:background="@drawable/rect_button"
+                android:text="Share Deal"
+                android:textStyle="bold"
+                android:textColor="@drawable/btn_selector"
+                android:textSize="@dimen/button_text_sw720"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="120dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:text="Add a deal to your wallet to quickly access it in the future. Deals must be claimed at the venue"
+            android:textColor="@color/Hint"
+            android:textStyle="bold"
+            android:textSize="@dimen/s_comment_text_sw720"
+            android:id="@+id/textView" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

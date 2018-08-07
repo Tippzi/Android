@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Tippzi</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="lp_email_vaild">Please fill in a valid email address.</string>
+    <string name="lp_check_password">This password is too short.</string>
+    <string name="lp_check_quantity">please fill in a valid quantity.</string>
+    <string name="lp_field_require">This filed is required.</string>
+    <string name="lp_wrong_password">Password Not matching.</string>
+    <string-array name="values">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+
+    <string name="twitter_callback">https://api.twitter.com/oauth/request_token</string>
+    <string name="twitter_consumer_key">55Z4U9O9m3AjM7EpLrzg4YauD</string>
+    <string name="twitter_consumer_secret">PHJXcdbELzqGtf2TByGs7AsvW4GYSPGumpZYChRY74AlH32IqC</string>
+    <string name="twitter_oauth_verifier">oauth_verifier</string>
+    <string name="facebook_app_id">234443213786150</string>
+    <string name="endpoint">http://ip-api.com/json</string>
+
+    <string name="server_client_id">295397127329-qou1nokfnupvoc2f7l6m4lrotrspkmm4.apps.googleusercontent.com</string>
+</resources>

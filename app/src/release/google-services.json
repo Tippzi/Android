@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "295397127329",
+    "firebase_url": "https://tippzi-200314.firebaseio.com",
+    "project_id": "tippzi-200314",
+    "storage_bucket": "tippzi-200314.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295397127329:android:a8c6e752809dd28b",
+        "android_client_info": {
+          "package_name": "com.application.tippzi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295397127329-3cj7lhgn31hrslbggvtu58frhsadb693.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOw1FiiiYdaxhbODIqdyFKS9L8Ca5Zb48"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

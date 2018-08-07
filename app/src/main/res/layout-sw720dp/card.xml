@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:layout_marginLeft="80dp"
+    android:layout_marginRight="80dp"
+    android:background="@android:color/transparent"
+    android:layout_marginTop="200dp"
+    android:elevation="4dp"
+    card_view:cardCornerRadius="4dp">
+    <RelativeLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/rect_mapview1"
+        tools:context="com.application.tippzi.Activities.BarDetailActivity">
+
+        <ImageView
+            android:id="@+id/iv_ticket"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:background="@mipmap/ico_ticket_active"/>
+
+        <TextView
+            android:id="@+id/tv_deal_title_slide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/iv_ticket"
+            android:text="Free Entry before 11pm"
+            android:textSize="@dimen/button_text_sw720"
+            android:textStyle="bold"
+            android:textColor="@color/HintBackground"/>
+
+        <TextView
+            android:id="@+id/tv_deal_description_slide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="4"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/iv_ticket"
+            android:layout_below="@+id/tv_deal_title_slide"
+            android:text="Lorem ipsum deolor dkoame aoke aoek die aode dkdo"
+            android:textColor="@color/Dark"
+            android:textSize="@dimen/m_comment_text_sw720"/>
+
+        <ImageView
+            android:id="@+id/iv_wink"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/iv_ticket"
+            android:layout_marginBottom="110dp"
+            android:layout_alignParentBottom="true"
+            android:background="@mipmap/ico_wink"/>
+
+        <TextView
+            android:id="@+id/tv_deal_remain_slide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/iv_wink"
+            android:layout_marginBottom="115dp"
+            android:layout_alignParentBottom="true"
+            android:text="Hurry, only 3 remaining"
+            android:textColor="@color/Dark"
+            android:textSize="@dimen/s_comment_text_sw720"/>
+
+        <TextView
+            android:id="@+id/tv_deal_duration_slide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="115dp"
+            android:layout_alignParentBottom="true"
+            android:text="Exp 18 Oct"
+            android:textColor="@color/Dark"
+            android:textSize="@dimen/s_comment_text_sw720"/>
+
+        <TextView
+            android:id="@+id/btn_claim_deal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edittext_height_sw720"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center|center_vertical"
+            android:background="@drawable/rect_sign_up_button"
+            android:text="    Click to claim this deal"
+            android:textStyle="bold"
+            android:textColor="@drawable/btn_selector"
+            android:textSize="@dimen/edit_text_sw720"/>
+
+        <ImageView
+            android:id="@+id/iv_ticket_button"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="30dp"
+            android:background="@mipmap/ico_ticket_button"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
