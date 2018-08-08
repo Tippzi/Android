@@ -80,11 +80,11 @@ public class CustomerDashboardScreen extends AbstractActivity {
         find_deal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CategoryScreen.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                overridePendingTransition(R.anim.forward_right_in, R.anim.forward_left_out);
-                finish();
+//                Intent intent = new Intent(getApplicationContext(), CategoryScreen.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                startActivity(intent);
+//                overridePendingTransition(R.anim.forward_right_in, R.anim.forward_left_out);
+//                finish();
             }
         });
 
