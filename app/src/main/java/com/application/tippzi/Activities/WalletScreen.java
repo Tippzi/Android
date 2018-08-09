@@ -43,10 +43,17 @@ public class WalletScreen extends AbstractActivity {
 
     private TextView mCoinCount;
 
+    private String backIntent = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallet);
+
+        Bundle extras = getIntent().getExtras();
+        if(extras.containsKey("backIntent")){
+            backIntent = extras.getString("backIntent");
+        }
 
         mGPS = new GPSTracker(this);
         if (mGPS.canGetLocation()) {
@@ -66,6 +73,9 @@ public class WalletScreen extends AbstractActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CustomerMapViewActivity.class);
+                if(backIntent.equals("Coin")){
+                    intent = new Intent(getApplicationContext(), CoinActivity.class);
+                }
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 overridePendingTransition(R.anim.back_left_out, R.anim.back_right_in);
@@ -220,6 +230,9 @@ public class WalletScreen extends AbstractActivity {
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(getApplicationContext(), CategoryScreen.class);
+        if(backIntent.equals("Coin")){
+            intent = new Intent(getApplicationContext(), CoinActivity.class);
+        }
         startActivity(intent);
         finish();
     }

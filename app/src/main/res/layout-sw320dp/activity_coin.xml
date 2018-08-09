@@ -19,6 +19,29 @@
         android:layout_marginLeft="20dp"
         android:background="@mipmap/ico_category"/>
 
+    <ImageView
+        android:id="@+id/iv_cu_wallet"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:background="@mipmap/ico_wallet_black"/>
+
+    <TextView
+        android:id="@+id/tv_count_wallet"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:gravity="center"
+        android:text="33"
+        android:textColor="@color/White"
+        android:textStyle="bold"
+        android:textSize="@dimen/comment_text"
+        android:layout_marginTop="12dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/rect_count_wallet"/>
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/myLocationButton"
         android:layout_width="wrap_content"
@@ -38,7 +61,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_gravity="bottom"
-        android:layout_height="100dp"
+        android:layout_height="135dp"
         android:background="@mipmap/coin_bottom">
 
         <TextView
@@ -47,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="35dp"
             android:text="A Section for Tips &amp; Tricks"
             android:textColor="@color/White"
             android:textSize="20dp"
@@ -59,13 +82,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView2"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
             android:layout_centerHorizontal="true"
             android:text="This section will randomly rotate different helpful hints for the player"
             android:textAlignment="center"
             android:textColor="@color/White"
-            android:textSize="15dp"/>
+            android:textSize="14dp"/>
     </RelativeLayout>
 
 </FrameLayout>

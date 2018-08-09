@@ -16,9 +16,11 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.application.tippzi.Global.CF;
 import com.application.tippzi.Global.GD;
+import com.application.tippzi.Models.WalletModel;
 import com.application.tippzi.ProgressBar.ACProgressFlower;
 import com.application.tippzi.R;
 import com.mapbox.mapboxsdk.Mapbox;
@@ -117,6 +119,52 @@ public class CoinActivity extends AppCompatActivity implements OnMapReadyCallbac
                 setMyLocation();
             }
         });
+
+        findViewById(R.id.iv_cu_wallet).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), WalletScreen.class);
+                intent.putExtra("backIntent", "Coin");
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                overridePendingTransition(R.anim.forward_right_in, R.anim.forward_left_out);
+                finish();
+            }
+        });
+
+        GD.check_wallet = false;
+
+        TextView count_wallet = findViewById(R.id.tv_count_wallet);
+
+
+
+        int wallet_count = 0;
+        for (int i = 0; i < GD.customerModel.walletModels.size(); i ++) {
+
+            if (GD.customerModel.walletModels.get(i).claim_check == true) {
+
+            } else {
+
+                WalletModel walletListModel = new WalletModel();
+                for (int j = 0; j < GD.customerModel.bars.size(); j++) {
+                    if (GD.customerModel.bars.get(j).bar_id == GD.customerModel.walletModels.get(i).bar_id) {
+                        walletListModel.category = GD.customerModel.bars.get(j).category;
+                        break;
+                    }
+                }
+
+                if (!walletListModel.category.equals(GD.category_option)) {
+                    continue;
+                }
+                wallet_count++;
+            }
+        }
+
+        if (wallet_count == 0) {
+            count_wallet.setVisibility(View.GONE);
+        } else {
+            count_wallet.setText(String.valueOf(wallet_count));
+        }
     }
 
     public double mLatitude;
@@ -222,7 +270,8 @@ public class CoinActivity extends AppCompatActivity implements OnMapReadyCallbac
                     .icon(icon)
                     .anchor(0.5f, 0.0f)
                     .infoWindowAnchor(0.5f, 0.0f)
-                    .title(Integer.toString(mCoinItems.get(i).id));
+                    .title(Integer.toString(mCoinItems.get(i).id))
+                    .snippet(Integer.toString(mCoinItems.get(i).id));
             mapbox.addMarker(coin).setAnchor(0.5f, 0.0f);
             mapbox.addMarker(coin).setInfoWindowAnchor(0.5f, 0.0f);
         }
