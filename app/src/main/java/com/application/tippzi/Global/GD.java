@@ -47,6 +47,8 @@ public class GD {
     public static String category_option = "";
     public static int wallet_pos = 0;
 
+    public static int selected_coin = -1;
+
     public static TwitterSession twitterSession;
 
     public static boolean isAlarm = false;

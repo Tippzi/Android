@@ -92,11 +92,11 @@ public class CustomerDashboardScreen extends AbstractActivity {
         tippzi_go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CoinActivity.class);
+                Intent intent = new Intent(getApplicationContext(), CoinBreakActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 overridePendingTransition(R.anim.forward_right_in, R.anim.forward_left_out);
-//                finish();
+                finish();
             }
         });
         dialog = new ACProgressFlower.Builder(this)

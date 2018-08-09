@@ -10,6 +10,7 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,7 @@ import com.application.tippzi.R;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.annotations.Icon;
 import com.mapbox.mapboxsdk.annotations.IconFactory;
+import com.mapbox.mapboxsdk.annotations.Marker;
 import com.mapbox.mapboxsdk.annotations.MarkerViewOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
@@ -39,7 +41,7 @@ import java.util.ArrayList;
 
 public class CoinActivity extends AppCompatActivity implements OnMapReadyCallback {
     private ACProgressFlower dialog;
-    private float mZoom = 18;
+    private float mZoom = 15.5f;
     @Override
     public void onMapReady(MapboxMap mapboxMap) {
         mapbox = mapboxMap;
@@ -57,6 +59,19 @@ public class CoinActivity extends AppCompatActivity implements OnMapReadyCallbac
             e.printStackTrace();
         }
         new GetNearCoins().execute(url, param.toString());
+        mapbox.getMarkerViewManager().setOnMarkerViewClickListener(new MapboxMap.OnMarkerViewClickListener() {
+            @Override
+            public boolean onMarkerClick(@NonNull Marker marker, @NonNull View view, @NonNull MapboxMap.MarkerViewAdapter adapter) {
+                int coinid = Integer.parseInt(marker.getTitle());
+                GD.selected_coin = coinid;
+                Intent intent = new Intent(getApplicationContext(), GameSplashActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                overridePendingTransition(R.anim.forward_right_in, R.anim.forward_left_out);
+                finish();
+                return false;
+            }
+        });
     }
 
     public class CoinItem{
@@ -133,10 +148,15 @@ public class CoinActivity extends AppCompatActivity implements OnMapReadyCallbac
                 return;
             }
             Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
-            double latitude = location.getLatitude(); mLatitude = latitude;
-            double longitude = location.getLongitude(); mLongitude = longitude;
+            try{
+                double latitude = location.getLatitude(); mLatitude = latitude;
+                double longitude = location.getLongitude(); mLongitude = longitude;
+            } catch(Exception ex){
+
+            }
+
             CameraPosition select =
-                    new CameraPosition.Builder().target(new LatLng(latitude, longitude))
+                    new CameraPosition.Builder().target(new LatLng(mLatitude, mLongitude))
                             .zoom(mZoom)
                             .bearing(0)
                             .tilt(0)
@@ -187,7 +207,7 @@ public class CoinActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     public void initCoinPositions(){
-        mapbox.clear();
+//        mapbox.clear();
         BitmapDrawable bitmapDrawable =(BitmapDrawable) ContextCompat.getDrawable(CoinActivity.this, R.mipmap.img_tippzi_coin);
         Bitmap originalBitmap = bitmapDrawable.getBitmap();
 
@@ -201,7 +221,8 @@ public class CoinActivity extends AppCompatActivity implements OnMapReadyCallbac
                     .position(new LatLng(Double.parseDouble(mCoinItems.get(i).latitude), Double.parseDouble(mCoinItems.get(i).longitude)))
                     .icon(icon)
                     .anchor(0.5f, 0.0f)
-                    .infoWindowAnchor(0.5f, 0.0f);
+                    .infoWindowAnchor(0.5f, 0.0f)
+                    .title(Integer.toString(mCoinItems.get(i).id));
             mapbox.addMarker(coin).setAnchor(0.5f, 0.0f);
             mapbox.addMarker(coin).setInfoWindowAnchor(0.5f, 0.0f);
         }

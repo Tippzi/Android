@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_tutorial1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/img_coin_collected"
+    tools:context="com.application.tippzi.Activities.SplashScreen">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/btn_collected_viewwallet"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/rect_button_active"
+            android:gravity="center_vertical|center_horizontal|center"
+            android:text="View Wallet"
+            android:textColor="@color/White"
+            android:textSize="@dimen/button_text_sw600"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btn_collected_continue"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/rect_button_white_noborder"
+            android:gravity="center_vertical|center_horizontal|center"
+            android:text="Continue"
+            android:textColor="#000000"
+            android:textSize="@dimen/button_text_sw600"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

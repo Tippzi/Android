@@ -25,7 +25,9 @@ import com.application.tippzi.R;
 import com.application.tippzi.Service.GPSTracker;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 public class WalletScreen extends AbstractActivity {
 
@@ -38,6 +40,8 @@ public class WalletScreen extends AbstractActivity {
 
     private ACProgressFlower dialog;
     private Dialog popupdailog ;
+
+    private TextView mCoinCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +80,52 @@ public class WalletScreen extends AbstractActivity {
         wallet_list.setDivider(this.getResources().getDrawable(R.drawable.transperent_color));
         wallet_list.setDividerHeight(30);
 
+        mCoinCount = findViewById(R.id.tv_coin_count);
+
         LoadWalletList() ;
+
+        String url = GD.coinApi + "get_coin_count";
+        JSONObject param = new JSONObject();
+        try {
+            param.put("customer", /*1*/GD.customerModel.user_id);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        new GetCoinCount().execute(url, param.toString());
     }
+
+    public class GetCoinCount extends AsyncTask<String, String, String> {
+        @Override
+        protected void onPreExecute() {
+            dialog.setCanceledOnTouchOutside(false);
+            dialog.show();
+            super.onPreExecute();
+        }
+        protected String doInBackground(String... param) {
+            String url = param[0];
+            String data = param[1];
+            String response = CF.HttpPostRequest(url, data);
+            publishProgress(response);
+            return null;
+        }
+        protected void onProgressUpdate(String... progress) {
+            String response = progress[0];
+            try {
+                JSONObject jo = new JSONObject(response);
+                coinct = jo.getString("coinct");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        @Override
+        protected void onPostExecute(String result) {
+            dialog.dismiss();
+            super.onPostExecute(result);
+            mCoinCount.setText(coinct + " tokens");
+        }
+    }
+
+    public String coinct = "";
 
     private void LoadWalletList() {
         walletListAdapter.clearFeedList();

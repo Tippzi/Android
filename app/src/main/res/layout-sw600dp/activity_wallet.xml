@@ -8,6 +8,24 @@
     android:background="@android:color/transparent"
     tools:context="com.application.tippzi.Activities.SplashScreen">
 
+    <ImageView
+        android:id="@+id/iv_tippzi_coin"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentLeft="true"
+        android:background="@mipmap/img_tippzi_coin"/>
+    <TextView
+        android:id="@+id/tv_coin_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_alignLeft="@+id/iv_tippzi_coin"
+        android:layout_marginLeft="50dp"
+        android:text="0 tokens"
+        android:textSize="20dp"/>
+
     <TextView
         android:id="@+id/tv_title_wallet"
         android:layout_width="wrap_content"

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_tutorial1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/img_coin_driving"
+    tools:context="com.application.tippzi.Activities.CoinDrivingActivity">
+
+    <TextView
+        android:id="@+id/btn_okay"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/rect_button_active"
+        android:gravity="center_vertical|center_horizontal|center"
+        android:text="Okay"
+        android:textColor="@color/White"
+        android:textSize="@dimen/button_text_sw480"
+        android:textStyle="bold" />
+
+</RelativeLayout>

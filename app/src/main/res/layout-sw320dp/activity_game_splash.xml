@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_tutorial1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/img_coin_splash"
+    tools:context="com.application.tippzi.Activities.SplashScreen">
+
+    <TextView
+        android:id="@+id/btn_play_game"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/rect_button_active"
+        android:gravity="center_vertical|center_horizontal|center"
+        android:text="Let's Play"
+        android:textColor="@color/White"
+        android:textSize="@dimen/button_text"
+        android:textStyle="bold" />
+
+</RelativeLayout>
