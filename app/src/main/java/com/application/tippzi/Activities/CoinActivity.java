@@ -64,7 +64,7 @@ public class CoinActivity extends AppCompatActivity implements OnMapReadyCallbac
         mapbox.getMarkerViewManager().setOnMarkerViewClickListener(new MapboxMap.OnMarkerViewClickListener() {
             @Override
             public boolean onMarkerClick(@NonNull Marker marker, @NonNull View view, @NonNull MapboxMap.MarkerViewAdapter adapter) {
-                int coinid = Integer.parseInt(marker.getTitle());
+                int coinid = Integer.parseInt(marker.getSnippet());
                 GD.selected_coin = coinid;
                 Intent intent = new Intent(getApplicationContext(), GameSplashActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -270,7 +270,7 @@ public class CoinActivity extends AppCompatActivity implements OnMapReadyCallbac
                     .icon(icon)
                     .anchor(0.5f, 0.0f)
                     .infoWindowAnchor(0.5f, 0.0f)
-                    .title(Integer.toString(mCoinItems.get(i).id))
+//                    .title(Integer.toString(mCoinItems.get(i).id))
                     .snippet(Integer.toString(mCoinItems.get(i).id));
             mapbox.addMarker(coin).setAnchor(0.5f, 0.0f);
             mapbox.addMarker(coin).setInfoWindowAnchor(0.5f, 0.0f);
