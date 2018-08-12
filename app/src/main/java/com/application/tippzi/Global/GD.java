@@ -55,6 +55,9 @@ public class GD {
 
     public static ArrayList<String> gServiceTexts;
 
+    public static double gLatitude;
+    public static double gLongitude;
+
 //    public static CountDownTimer timer = new CountDownTimer(5 * 1000 * 1, 1000) {
 //        @Override
 //        public void onTick(long millisUntilFinished) {

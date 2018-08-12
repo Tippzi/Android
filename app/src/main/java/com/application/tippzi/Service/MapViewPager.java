@@ -251,87 +251,12 @@ public class MapViewPager extends FrameLayout implements OnMapReadyCallback {
         populate();
     }
 
-    public void populate_origin(MultiAdapter adapter){
-        if(adapter.getCount() > 0){
-            allMarkers = new LinkedList<>();
-//            int page = 0;
-            for (int page = 0; page < adapter.getCount(); page++) {
-                LinkedList<Marker> pageMarkers = new LinkedList<>();
-                if (adapter.getCameraPositions(page) != null) {
-                    //                String category = adapter.getBarId(page);
-                    for (int i = 0; i < adapter.getCameraPositions(page).size(); i++) {
-                        final CameraPosition cp = adapter.getCameraPositions(page).get(i);
-                        if (cp != null) {
-                            double lat = cp.target.getLatitude();
-                            double lon = cp.target.getLongitude();
-                            LayoutInflater inflater = LayoutInflater.from(mContext);
-                            map.setInfoWindowAdapter(new BarTitleViewAdapter(inflater));
-//                            mo = createMarkerOptions(cp, adapter.getMarkerTitle(page, i), "unselect");
-//                            MarkerView mv = map.addMarker(mo);
-//                            //                        map.addMarker(mo).setAnchor(0.5f, 0.0f);
-//                            //                        map.addMarker(mo).setInfoWindowAnchor(0.5f, 0.0f);
-//                            //                        pageMarkers.add(map.addMarker(mo));
-//                            mv.setInfoWindowAnchor(0.5f, 0.1f);
-//                            //                        mv.setAnchor(0.5f, 0.5f);
-//                            pageMarkers.add(mv);
-                            MarkerOptions mark = createMarkerOptions_op(cp, adapter.getMarkerTitle(page, i), "unselect");
-                            map.addMarker(mark);
-                        } else pageMarkers.add(null);
-                    }
-                }
-                allMarkers.add(pageMarkers);
-            }
-            map.getMarkerViewManager().setOnMarkerViewClickListener(createMarkerClickListenerMulti(adapter));
-            initDefaultPositions(adapter);
-        }
-    }
-
     public void populate() {
 //        if (adapter instanceof MultiAdapter) populateMulti((MultiAdapter) adapter);
 //        else populateSingle((Adapter) adapter);
         populateMulti((MultiAdapter) adapter);
 
     }
-
-//    public class AddMarkThread extends AsyncTask<String, String, String> {
-//        @Override
-//        protected void onPreExecute() {
-//            super.onPreExecute();
-//        }
-//
-//        @Override
-//        protected String doInBackground(String... param) {
-//            allMarkers = new LinkedList<>();
-//            MultiAdapter tadapter = (MultiAdapter) adapter;
-//            for (int page = 0; page < 10; page++) {
-//                LinkedList<Marker> pageMarkers = new LinkedList<>();
-//                if (tadapter.getCameraPositions(page) != null) {
-////                String category = adapter.getBarId(page);
-//                    for (int i = 0; i < tadapter.getCameraPositions(page).size(); i++) {
-//                        final CameraPosition cp = tadapter.getCameraPositions(page).get(i);
-//                        if (cp != null) {
-////                        LayoutInflater inflater = LayoutInflater.from(mContext);
-////                        map.setInfoWindowAdapter(new BarTitleViewAdapter(inflater));
-//                            mo = createMarkerOptions(cp, tadapter.getMarkerTitle(page, i), "unselect");
-//                            map.addMarker(mo).setAnchor(0.5f, 0.0f);
-//                            map.addMarker(mo).setInfoWindowAnchor(0.5f, 0.0f);
-//                            pageMarkers.add(map.addMarker(mo));
-//                        } else pageMarkers.add(null);
-//                    }
-//                }
-//                allMarkers.add(pageMarkers);
-//            }
-//            return null;
-//        }
-//
-//        protected void onProgressUpdate(String... progress) {
-//
-//        }
-//        @Override
-//        protected void onPostExecute(String result) {
-//            super.onPostExecute(result);
-//        }
-//    }
 
     private void populateMulti(final MultiAdapter adapter) {
         allMarkers = new LinkedList<>();
@@ -563,13 +488,16 @@ public class MapViewPager extends FrameLayout implements OnMapReadyCallback {
         else map.moveCamera(cu);
     }
 
-    private Marker updateMarks(final MultiAdapter adapter, CameraPosition select_cp){
+    private Marker updateMarks(final MultiAdapter adapter, CameraPosition select_cp, String title){
         Marker res = null;
         for(int page = 0; page < allMarkers.size(); page++){
             LinkedList<Marker> pageMarkers = (LinkedList<Marker>)allMarkers.get(page);
             for(int markIdx = 0; markIdx < pageMarkers.size(); markIdx++){
                 Marker _marker = pageMarkers.get(markIdx);
-                if (select_cp.target.getLatitude() == _marker.getPosition().getLatitude() && select_cp.target.getLongitude() == _marker.getPosition().getLongitude()){
+                String markerTitle = _marker.getTitle();
+                if (select_cp.target.getLatitude() == _marker.getPosition().getLatitude()
+                        && select_cp.target.getLongitude() == _marker.getPosition().getLongitude()
+                        && markerTitle.equals(title)){
                     //_marker.setIcon(iconSelected());
                     res = _marker;
                 } else {
@@ -594,6 +522,7 @@ public class MapViewPager extends FrameLayout implements OnMapReadyCallback {
             Log.e("onCameraIdle", map.getCameraPosition().toString());
             if(isSwipingBar){
                 MultiAdapter _adapter = (MultiAdapter)adapter;
+                String title = _adapter.getMarkerTitle(nSwipingId, 0);
                 CameraPosition select =
                     new CameraPosition.Builder().target(
                             new LatLng(_adapter.getCameraPositions(nSwipingId).get(0).target.getLatitude(),
@@ -603,7 +532,7 @@ public class MapViewPager extends FrameLayout implements OnMapReadyCallback {
                             .tilt(0)
                             .build();
 
-                Marker _selectedMarker = updateMarks(_adapter, select);
+                Marker _selectedMarker = updateMarks(_adapter, select, title);
                 if(_selectedMarker != null){
                     map.selectMarker(_selectedMarker);
                     map.updateMarker(_selectedMarker);

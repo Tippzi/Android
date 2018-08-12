@@ -71,21 +71,11 @@ public class CustomerMapViewActivity extends AbstractActivity implements MapView
     private int switch_flag = 1;
     private FloatingActionButton FAB ;
 
-    private double mLatitude = 0f;
-    private double mLongitude = 0f;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Mapbox.getInstance(this, "pk.eyJ1IjoicGV0ZXJwYW5tYXBib3giLCJhIjoiY2plcjJkN2QyMGFwZjJ3cGFuYnR6cDFoZSJ9.4U_mCCQ9LpUXKcQQb2NNuw");
         setContentView(R.layout.activity_customer_mapview);
-
-        if(getIntent().getExtras().containsKey("latitude")){
-            mLatitude = getIntent().getDoubleExtra("latitude", 0);
-        }
-        if(getIntent().getExtras().containsKey("longitude")){
-            mLongitude = getIntent().getDoubleExtra("longitude", 0);
-        }
 
         GD.barIdEngagement = new ArrayList<Integer>();
 
@@ -461,7 +451,7 @@ public class CustomerMapViewActivity extends AbstractActivity implements MapView
             locationModel.bar_music = barModelArrayList.get(i).music_type;
             locationModel.galleryModel = barModelArrayList.get(i).galleryModel;
             locationModel.bar_id = barModelArrayList.get(i).bar_id ;
-            if(distance(latitude, longitude, mLatitude, mLongitude) > 4 && !search)
+            if(distance(latitude, longitude, GD.gLatitude, GD.gLongitude) > 4 && !search)
                 continue;
             locationModelArrayList.add(locationModel);
         }

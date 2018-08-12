@@ -82,6 +82,8 @@ public class CustomerDashboardScreen extends AbstractActivity implements
                 }
                 Location lastLocation = LocationServices.FusedLocationApi.getLastLocation(
                         mGoogleApiClient);
+                GD.gLatitude = lastLocation.getLatitude();
+                GD.gLongitude = lastLocation.getLongitude();
                 GD.category_option = "";
                 ArrayList<BarModel> barModels = new ArrayList<BarModel>();
                 for (int i = 0; i < GD.customerModel.bars.size(); i ++) {
@@ -94,8 +96,6 @@ public class CustomerDashboardScreen extends AbstractActivity implements
                 } else {
                     Intent intent = new Intent(getApplicationContext(), CustomerMapViewActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    intent.putExtra("latitude", lastLocation.getLatitude());
-                    intent.putExtra("longitude", lastLocation.getLongitude());
                     startActivity(intent);
                     overridePendingTransition(R.anim.forward_right_in, R.anim.forward_left_out);
                     finish();
