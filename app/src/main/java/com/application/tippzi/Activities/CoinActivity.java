@@ -27,6 +27,7 @@ import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.annotations.Icon;
 import com.mapbox.mapboxsdk.annotations.IconFactory;
 import com.mapbox.mapboxsdk.annotations.Marker;
+import com.mapbox.mapboxsdk.annotations.MarkerView;
 import com.mapbox.mapboxsdk.annotations.MarkerViewOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
@@ -272,8 +273,8 @@ public class CoinActivity extends AppCompatActivity implements OnMapReadyCallbac
                     .infoWindowAnchor(0.5f, 0.0f)
 //                    .title(Integer.toString(mCoinItems.get(i).id))
                     .snippet(Integer.toString(mCoinItems.get(i).id));
-            mapbox.addMarker(coin).setAnchor(0.5f, 0.0f);
-            mapbox.addMarker(coin).setInfoWindowAnchor(0.5f, 0.0f);
+            MarkerView mv = mapbox.addMarker(coin);
+            mv.setAnchor(0.5f, 0.0f);
         }
     }
 

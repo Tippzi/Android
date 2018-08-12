@@ -71,14 +71,21 @@ public class CustomerMapViewActivity extends AbstractActivity implements MapView
     private int switch_flag = 1;
     private FloatingActionButton FAB ;
 
-
-
+    private double mLatitude = 0f;
+    private double mLongitude = 0f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Mapbox.getInstance(this, "pk.eyJ1IjoicGV0ZXJwYW5tYXBib3giLCJhIjoiY2plcjJkN2QyMGFwZjJ3cGFuYnR6cDFoZSJ9.4U_mCCQ9LpUXKcQQb2NNuw");
         setContentView(R.layout.activity_customer_mapview);
+
+        if(getIntent().getExtras().containsKey("latitude")){
+            mLatitude = getIntent().getDoubleExtra("latitude", 0);
+        }
+        if(getIntent().getExtras().containsKey("longitude")){
+            mLongitude = getIntent().getDoubleExtra("longitude", 0);
+        }
 
         GD.barIdEngagement = new ArrayList<Integer>();
 
@@ -161,7 +168,7 @@ public class CustomerMapViewActivity extends AbstractActivity implements MapView
         viewPager.setPageMargin(Utils.dp(this, 10));
         Utils.setMargins(viewPager, 0, 0, 0,0);
 
-        MapViewPagerDataLoad(GD.barModels) ;
+        MapViewPagerDataLoad(GD.barModels,false) ;
 
         if ( GD.select_pos == 0 ) {
             select_pos = 0 ;
@@ -241,7 +248,7 @@ public class CustomerMapViewActivity extends AbstractActivity implements MapView
                     }
                 }
                 if (search_google_map.getText().equals("")) {
-
+                    MapViewPagerDataLoad(GD.barModels, false);
                 } else {
                     if (search_statue == false) {
                         search_statue = true;
@@ -274,9 +281,9 @@ public class CustomerMapViewActivity extends AbstractActivity implements MapView
                         if (GD.barModels.size() == 0) {
                             Toast.makeText(getApplicationContext(), "Couldn't find bars matching your search please try again", Toast.LENGTH_LONG).show();
                             GD.barModels = barList;
-                            MapViewPagerDataLoad(GD.barModels) ;
+                            MapViewPagerDataLoad(GD.barModels, true) ;
                         } else {
-                            MapViewPagerDataLoad(GD.barModels) ;
+                            MapViewPagerDataLoad(GD.barModels, true) ;
                         }
                     } else {
                         search_statue = false;
@@ -284,7 +291,7 @@ public class CustomerMapViewActivity extends AbstractActivity implements MapView
                         search.setBackgroundResource(R.mipmap.ico_search);
                         search_google_map.setText("");
 
-                        MapViewPagerDataLoad(GD.barModels);
+                        MapViewPagerDataLoad(GD.barModels, true);
                     }
                 }
             }
@@ -402,7 +409,25 @@ public class CustomerMapViewActivity extends AbstractActivity implements MapView
         return barModels;
     }
 
-    public void MapViewPagerDataLoad(ArrayList<BarModel> barModelArrayList){
+    private double deg2rad(double deg) {return (deg * Math.PI / 180.0);}
+    private double rad2deg(double rad) {
+        return (rad * 180.0 / Math.PI);
+    }
+    private double distance(double lat1, double lon1, double lat2, double lon2) {
+        double theta = lon1 - lon2;
+        double dist = Math.sin(deg2rad(lat1))
+                * Math.sin(deg2rad(lat2))
+                + Math.cos(deg2rad(lat1))
+                * Math.cos(deg2rad(lat2))
+                * Math.cos(deg2rad(theta));
+        dist = Math.acos(dist);
+        dist = rad2deg(dist);
+        dist = dist * 60 * 1.1515;
+        return (dist);
+    }
+
+    public void MapViewPagerDataLoad(ArrayList<BarModel> barModelArrayList, boolean search){
+
         locationModelArrayList = new ArrayList<>();
         for (int i = 0; i < barModelArrayList.size() ; i++) {
             LocationModel locationModel = new LocationModel();
@@ -436,8 +461,13 @@ public class CustomerMapViewActivity extends AbstractActivity implements MapView
             locationModel.bar_music = barModelArrayList.get(i).music_type;
             locationModel.galleryModel = barModelArrayList.get(i).galleryModel;
             locationModel.bar_id = barModelArrayList.get(i).bar_id ;
+            if(distance(latitude, longitude, mLatitude, mLongitude) > 4 && !search)
+                continue;
             locationModelArrayList.add(locationModel);
         }
+//        if(locationModelArrayList.size() == 0){
+//            return;
+//        }
 
         if(mvp != null) {
             mvp.refreshOnSearch(new CustomerMapViewAdapter(getSupportFragmentManager(), locationModelArrayList));

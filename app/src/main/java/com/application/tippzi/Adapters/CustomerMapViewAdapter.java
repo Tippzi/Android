@@ -16,14 +16,15 @@ import java.util.List;
 
 public class CustomerMapViewAdapter extends MapViewPager.MultiAdapter {
 
-    public static final String[] DEAL_TITLES = new String[256] ;
-    public static final String[] DESCRPTION = new String[256] ;
-    public static final String[] MUSIC = new String[256] ;
-    public static final String[] REMAIN = new String[256] ;
-    public static final String[] PAGE_TITLES = new String[256] ;
-    public static final GalleryModel[] GALLERY_MODELS = new GalleryModel[256];
-    public static final LatLng[] Seelect_Latlng = new LatLng[256];
-    public static final int[] bar_ids = new int[255];
+    public static final int MAX_COUNT = 512;
+    public static final String[] DEAL_TITLES = new String[MAX_COUNT] ;
+    public static final String[] DESCRPTION = new String[MAX_COUNT] ;
+    public static final String[] MUSIC = new String[MAX_COUNT] ;
+    public static final String[] REMAIN = new String[MAX_COUNT] ;
+    public static final String[] PAGE_TITLES = new String[MAX_COUNT] ;
+    public static final GalleryModel[] GALLERY_MODELS = new GalleryModel[MAX_COUNT];
+    public static final LatLng[] Seelect_Latlng = new LatLng[MAX_COUNT];
+    public static final int[] bar_ids = new int[MAX_COUNT];
     private ArrayList<LocationModel> resultlocation  ;
 
     public CustomerMapViewAdapter(FragmentManager fm, ArrayList<LocationModel> locationModelArrayList) {

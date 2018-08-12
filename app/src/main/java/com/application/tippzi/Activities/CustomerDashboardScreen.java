@@ -1,11 +1,18 @@
 package com.application.tippzi.Activities;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -17,17 +24,23 @@ import com.application.tippzi.Global.GD;
 import com.application.tippzi.Models.BarModel;
 import com.application.tippzi.ProgressBar.ACProgressFlower;
 import com.application.tippzi.R;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.ArrayList;
 
-public class CustomerDashboardScreen extends AbstractActivity {
+public class CustomerDashboardScreen extends AbstractActivity implements
+        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
     private ACProgressFlower dialog;
     private static final String MyPREFERENCES = "Tippzi";
     private static final String USERID = "user_id";
     private static final String USERTYPE = "user_type";
+    GoogleApiClient mGoogleApiClient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +70,18 @@ public class CustomerDashboardScreen extends AbstractActivity {
         find_venue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (ActivityCompat.checkSelfPermission(CustomerDashboardScreen.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(CustomerDashboardScreen.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
+                Location lastLocation = LocationServices.FusedLocationApi.getLastLocation(
+                        mGoogleApiClient);
                 GD.category_option = "";
                 ArrayList<BarModel> barModels = new ArrayList<BarModel>();
                 for (int i = 0; i < GD.customerModel.bars.size(); i ++) {
@@ -69,6 +94,8 @@ public class CustomerDashboardScreen extends AbstractActivity {
                 } else {
                     Intent intent = new Intent(getApplicationContext(), CustomerMapViewActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.putExtra("latitude", lastLocation.getLatitude());
+                    intent.putExtra("longitude", lastLocation.getLongitude());
                     startActivity(intent);
                     overridePendingTransition(R.anim.forward_right_in, R.anim.forward_left_out);
                     finish();
@@ -105,7 +132,34 @@ public class CustomerDashboardScreen extends AbstractActivity {
                 .build();
         String url = GD.BaseUrl + "get_service_name.php";
         new GetServiceNames().execute(url);
+
+        if (mGoogleApiClient == null) {
+            mGoogleApiClient = new GoogleApiClient.Builder(this)
+                    .addConnectionCallbacks(this)
+                    .addOnConnectionFailedListener(this)
+                    .addApi(LocationServices.API)
+                    .build();
+        }
+        if (mGoogleApiClient != null) {
+            mGoogleApiClient.connect();
+        }
     }
+
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
+        Log.e("CustomerDashboardScreen", "google api connected");
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+
     public class GetServiceNames extends AsyncTask<String, String, String> {
         @Override
         protected void onPreExecute() {

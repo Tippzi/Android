@@ -12,6 +12,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.nfc.Tag;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -34,6 +35,7 @@ import android.widget.Toast;
 import com.application.tippzi.Adapters.BarTitleViewAdapter;
 import com.application.tippzi.Adapters.CustomerMapViewAdapter;
 import com.application.tippzi.Global.GD;
+import com.application.tippzi.Models.BarModel;
 import com.application.tippzi.R;
 import com.mapbox.mapboxsdk.annotations.Icon;
 import com.mapbox.mapboxsdk.annotations.IconFactory;
@@ -229,10 +231,14 @@ public class MapViewPager extends FrameLayout implements OnMapReadyCallback {
                 moveTo(position, true);
             }
         });
+//        populate_origin((MultiAdapter) adapter);
         populate();
         if (callback != null) callback.onMapViewPagerReady();
         map.setOnCameraIdleListener(onMoveEnd);
         //moveTo(viewPager.getCurrentItem(), false);
+        if(adapter.getCount() == 0){
+            setMyLocation();
+        } else
         moveTo(viewPager.getCurrentItem(), true);
     }
 
@@ -245,12 +251,87 @@ public class MapViewPager extends FrameLayout implements OnMapReadyCallback {
         populate();
     }
 
+    public void populate_origin(MultiAdapter adapter){
+        if(adapter.getCount() > 0){
+            allMarkers = new LinkedList<>();
+//            int page = 0;
+            for (int page = 0; page < adapter.getCount(); page++) {
+                LinkedList<Marker> pageMarkers = new LinkedList<>();
+                if (adapter.getCameraPositions(page) != null) {
+                    //                String category = adapter.getBarId(page);
+                    for (int i = 0; i < adapter.getCameraPositions(page).size(); i++) {
+                        final CameraPosition cp = adapter.getCameraPositions(page).get(i);
+                        if (cp != null) {
+                            double lat = cp.target.getLatitude();
+                            double lon = cp.target.getLongitude();
+                            LayoutInflater inflater = LayoutInflater.from(mContext);
+                            map.setInfoWindowAdapter(new BarTitleViewAdapter(inflater));
+//                            mo = createMarkerOptions(cp, adapter.getMarkerTitle(page, i), "unselect");
+//                            MarkerView mv = map.addMarker(mo);
+//                            //                        map.addMarker(mo).setAnchor(0.5f, 0.0f);
+//                            //                        map.addMarker(mo).setInfoWindowAnchor(0.5f, 0.0f);
+//                            //                        pageMarkers.add(map.addMarker(mo));
+//                            mv.setInfoWindowAnchor(0.5f, 0.1f);
+//                            //                        mv.setAnchor(0.5f, 0.5f);
+//                            pageMarkers.add(mv);
+                            MarkerOptions mark = createMarkerOptions_op(cp, adapter.getMarkerTitle(page, i), "unselect");
+                            map.addMarker(mark);
+                        } else pageMarkers.add(null);
+                    }
+                }
+                allMarkers.add(pageMarkers);
+            }
+            map.getMarkerViewManager().setOnMarkerViewClickListener(createMarkerClickListenerMulti(adapter));
+            initDefaultPositions(adapter);
+        }
+    }
+
     public void populate() {
 //        if (adapter instanceof MultiAdapter) populateMulti((MultiAdapter) adapter);
 //        else populateSingle((Adapter) adapter);
         populateMulti((MultiAdapter) adapter);
 
     }
+
+//    public class AddMarkThread extends AsyncTask<String, String, String> {
+//        @Override
+//        protected void onPreExecute() {
+//            super.onPreExecute();
+//        }
+//
+//        @Override
+//        protected String doInBackground(String... param) {
+//            allMarkers = new LinkedList<>();
+//            MultiAdapter tadapter = (MultiAdapter) adapter;
+//            for (int page = 0; page < 10; page++) {
+//                LinkedList<Marker> pageMarkers = new LinkedList<>();
+//                if (tadapter.getCameraPositions(page) != null) {
+////                String category = adapter.getBarId(page);
+//                    for (int i = 0; i < tadapter.getCameraPositions(page).size(); i++) {
+//                        final CameraPosition cp = tadapter.getCameraPositions(page).get(i);
+//                        if (cp != null) {
+////                        LayoutInflater inflater = LayoutInflater.from(mContext);
+////                        map.setInfoWindowAdapter(new BarTitleViewAdapter(inflater));
+//                            mo = createMarkerOptions(cp, tadapter.getMarkerTitle(page, i), "unselect");
+//                            map.addMarker(mo).setAnchor(0.5f, 0.0f);
+//                            map.addMarker(mo).setInfoWindowAnchor(0.5f, 0.0f);
+//                            pageMarkers.add(map.addMarker(mo));
+//                        } else pageMarkers.add(null);
+//                    }
+//                }
+//                allMarkers.add(pageMarkers);
+//            }
+//            return null;
+//        }
+//
+//        protected void onProgressUpdate(String... progress) {
+//
+//        }
+//        @Override
+//        protected void onPostExecute(String result) {
+//            super.onPostExecute(result);
+//        }
+//    }
 
     private void populateMulti(final MultiAdapter adapter) {
         allMarkers = new LinkedList<>();
@@ -261,17 +342,48 @@ public class MapViewPager extends FrameLayout implements OnMapReadyCallback {
                 for (int i = 0; i < adapter.getCameraPositions(page).size(); i++) {
                     final CameraPosition cp = adapter.getCameraPositions(page).get(i);
                     if (cp != null) {
+                        double lat = cp.target.getLatitude(); double lon = cp.target.getLongitude();
                         LayoutInflater inflater = LayoutInflater.from(mContext);
                         map.setInfoWindowAdapter(new BarTitleViewAdapter(inflater));
                         mo = createMarkerOptions(cp, adapter.getMarkerTitle(page, i), "unselect");
-                        map.addMarker(mo).setAnchor(0.5f, 0.0f);
-                        map.addMarker(mo).setInfoWindowAnchor(0.5f, 0.0f);
-                        pageMarkers.add(map.addMarker(mo));
+                        MarkerView mv = map.addMarker(mo);
+//                        map.addMarker(mo).setAnchor(0.5f, 0.0f);
+//                        map.addMarker(mo).setInfoWindowAnchor(0.5f, 0.0f);
+//                        pageMarkers.add(map.addMarker(mo));
+                        mv.setInfoWindowAnchor(0.5f, 0.1f);
+//                        mv.setAnchor(0.5f, 0.5f);
+                        pageMarkers.add(mv);
                     } else pageMarkers.add(null);
                 }
             }
             allMarkers.add(pageMarkers);
         }
+
+//        for (int i = 0; i < GD.barModels.size(); i++){
+//            BarModel bar = GD.barModels.get(i);
+//            LinkedList<Marker> pageMarkers = new LinkedList<>();
+//            double latitude;
+//            double longitude;
+//            try {
+//                latitude = Double.valueOf(bar.lat);
+//                longitude = Double.valueOf(bar.lon);
+//            } catch (Exception ex){
+//                latitude = 0;
+//                longitude = 0;
+//            }
+//            LatLng location_info = new LatLng(latitude, longitude);
+//            CameraPosition cp
+//                    =  new CameraPosition.Builder().target(location_info).zoom(14.0f)
+//                    .bearing(0)
+//                    .tilt(0)
+//                    .build();
+//            LayoutInflater inflater = LayoutInflater.from(mContext);
+//            map.setInfoWindowAdapter(new BarTitleViewAdapter(inflater));
+//            mo = createMarkerOptions(cp, bar.business_name, "unselect");
+//            map.addMarker(mo).setAnchor(0.5f, 0.0f);
+//            map.addMarker(mo).setInfoWindowAnchor(0.5f, 0.0f);
+//            pageMarkers.add(map.addMarker(mo));
+//        }
 
         map.getMarkerViewManager().setOnMarkerViewClickListener(createMarkerClickListenerMulti(adapter));
         initDefaultPositions(adapter);
@@ -479,6 +591,7 @@ public class MapViewPager extends FrameLayout implements OnMapReadyCallback {
     MapboxMap.OnCameraIdleListener onMoveEnd = new MapboxMap.OnCameraIdleListener() {
         @Override
         public void onCameraIdle() {
+            Log.e("onCameraIdle", map.getCameraPosition().toString());
             if(isSwipingBar){
                 MultiAdapter _adapter = (MultiAdapter)adapter;
                 CameraPosition select =
@@ -499,6 +612,7 @@ public class MapViewPager extends FrameLayout implements OnMapReadyCallback {
                 if (pref.getString("user_type", "").equals("Business")) {
 
                 } else if(pref.getString("user_type", "").equals("Customer")){
+//                    populate();
                     select_location = new LatLng(_adapter.getCameraPositions(nSwipingId).get(0).target.getLatitude(),_adapter.getCameraPositions(nSwipingId).get(0).target.getLongitude());
                     for (int i = 0 ; i < GD.customerModel.bars.size() ; i++) {
                         double lat = 0;
@@ -613,6 +727,19 @@ public class MapViewPager extends FrameLayout implements OnMapReadyCallback {
                 .icon(icon)
                 .anchor(0.5f,0.0f)
                 .infoWindowAnchor(0.5f,0.0f)
+                .title(title);
+    }
+
+    private MarkerOptions createMarkerOptions_op(CameraPosition cp, String title, String select_flag) {
+        if (cp == null) return null;
+        if (select_flag.equals("select")) {
+            icon = iconSelected();
+        } else if (select_flag.equals("unselect")){
+            icon = resizeBitmap(R.mipmap.ico_unselected_bar, select_flag);
+        }
+        return new MarkerOptions()
+                .position(new LatLng(cp.target.getLatitude(), cp.target.getLongitude()))
+                .icon(icon)
                 .title(title);
     }
 
