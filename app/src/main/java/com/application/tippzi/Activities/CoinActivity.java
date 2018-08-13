@@ -23,18 +23,16 @@ import com.application.tippzi.Global.GD;
 import com.application.tippzi.Models.WalletModel;
 import com.application.tippzi.ProgressBar.ACProgressFlower;
 import com.application.tippzi.R;
-import com.mapbox.mapboxsdk.Mapbox;
-import com.mapbox.mapboxsdk.annotations.Icon;
-import com.mapbox.mapboxsdk.annotations.IconFactory;
-import com.mapbox.mapboxsdk.annotations.Marker;
-import com.mapbox.mapboxsdk.annotations.MarkerView;
-import com.mapbox.mapboxsdk.annotations.MarkerViewOptions;
-import com.mapbox.mapboxsdk.camera.CameraPosition;
-import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
-import com.mapbox.mapboxsdk.geometry.LatLng;
-import com.mapbox.mapboxsdk.maps.MapView;
-import com.mapbox.mapboxsdk.maps.MapboxMap;
-import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,12 +43,15 @@ import java.util.ArrayList;
 public class CoinActivity extends AppCompatActivity implements OnMapReadyCallback {
     private ACProgressFlower dialog;
     private float mZoom = 15.5f;
+
     @Override
-    public void onMapReady(MapboxMap mapboxMap) {
+    public void onMapReady(GoogleMap mapboxMap) {
         mapbox = mapboxMap;
-        mapbox.getUiSettings().setAttributionEnabled(false);
-        mapbox.getUiSettings().setLogoEnabled(false);
-        mapbox.getUiSettings().setDoubleTapGesturesEnabled(true);
+        mapbox.getUiSettings().setCompassEnabled(false);
+        mapbox.getUiSettings().setMyLocationButtonEnabled(false);
+//        mapbox.getUiSettings().setAttributionEnabled(false);
+//        mapbox.getUiSettings().setLogoEnabled(false);
+//        mapbox.getUiSettings().setDoubleTapGesturesEnabled(true);
         setMyLocation();
         String url = GD.coinApi + "get_near_coins";
         JSONObject param = new JSONObject();
@@ -62,9 +63,9 @@ public class CoinActivity extends AppCompatActivity implements OnMapReadyCallbac
             e.printStackTrace();
         }
         new GetNearCoins().execute(url, param.toString());
-        mapbox.getMarkerViewManager().setOnMarkerViewClickListener(new MapboxMap.OnMarkerViewClickListener() {
+        mapbox.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
-            public boolean onMarkerClick(@NonNull Marker marker, @NonNull View view, @NonNull MapboxMap.MarkerViewAdapter adapter) {
+            public boolean onMarkerClick(Marker marker) {
                 int coinid = Integer.parseInt(marker.getSnippet());
                 GD.selected_coin = coinid;
                 Intent intent = new Intent(getApplicationContext(), GameSplashActivity.class);
@@ -77,20 +78,22 @@ public class CoinActivity extends AppCompatActivity implements OnMapReadyCallbac
         });
     }
 
-    public class CoinItem{
+    public class CoinItem {
         public int id;
         public String latitude;
         public String longitude;
         public String token;
     }
+
     public ArrayList<CoinItem> mCoinItems = new ArrayList<>();
-    private MapView map;
+    private SupportMapFragment map;
     private Bundle savebundle;
-    private MapboxMap mapbox;
+    private GoogleMap mapbox;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Mapbox.getInstance(this, "pk.eyJ1IjoicGV0ZXJwYW5tYXBib3giLCJhIjoiY2plcjJkN2QyMGFwZjJ3cGFuYnR6cDFoZSJ9.4U_mCCQ9LpUXKcQQb2NNuw");
+//        Mapbox.getInstance(this, "pk.eyJ1IjoicGV0ZXJwYW5tYXBib3giLCJhIjoiY2plcjJkN2QyMGFwZjJ3cGFuYnR6cDFoZSJ9.4U_mCCQ9LpUXKcQQb2NNuw");
         setContentView(R.layout.activity_coin);
 
         dialog = new ACProgressFlower.Builder(this)
@@ -98,9 +101,9 @@ public class CoinActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .text("Loading...")
                 .build();
 
-        map = findViewById(R.id.map1);
+        map = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         map.onCreate(savedInstanceState);
-        savebundle = savedInstanceState ;
+        savebundle = savedInstanceState;
         map.getMapAsync(this);
 
         findViewById(R.id.iv_go_dashboard).setOnClickListener(new View.OnClickListener() {
@@ -138,9 +141,8 @@ public class CoinActivity extends AppCompatActivity implements OnMapReadyCallbac
         TextView count_wallet = findViewById(R.id.tv_count_wallet);
 
 
-
         int wallet_count = 0;
-        for (int i = 0; i < GD.customerModel.walletModels.size(); i ++) {
+        for (int i = 0; i < GD.customerModel.walletModels.size(); i++) {
 
             if (GD.customerModel.walletModels.get(i).claim_check == true) {
 
@@ -170,7 +172,18 @@ public class CoinActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     public double mLatitude;
     public double mLongitude;
+
     public void setMyLocation() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         mapbox.setMyLocationEnabled(true);
         if (mapbox.getMyLocation() != null) {
             CameraPosition select =
@@ -212,7 +225,7 @@ public class CoinActivity extends AppCompatActivity implements OnMapReadyCallbac
                             .build();
             mapbox.moveCamera(CameraUpdateFactory.newCameraPosition(select));
         }
-        map.invalidate();
+//        map.invalidate();
     }
 
     public class GetNearCoins extends AsyncTask<String, String, String> {
@@ -261,57 +274,19 @@ public class CoinActivity extends AppCompatActivity implements OnMapReadyCallbac
         Bitmap originalBitmap = bitmapDrawable.getBitmap();
 
         Bitmap resizedBitmap = Bitmap.createScaledBitmap(originalBitmap, 90, 90, false);
-
-        IconFactory iconFactory = IconFactory.getInstance(CoinActivity.this);
-        Icon icon = iconFactory.fromBitmap(resizedBitmap);
+        BitmapDescriptor icon = BitmapDescriptorFactory.fromBitmap(resizedBitmap);
 
         for(int i = 0; i < mCoinItems.size(); i++) {
-            MarkerViewOptions coin = new MarkerViewOptions()
+            MarkerOptions coin = new MarkerOptions()
                     .position(new LatLng(Double.parseDouble(mCoinItems.get(i).latitude), Double.parseDouble(mCoinItems.get(i).longitude)))
                     .icon(icon)
                     .anchor(0.5f, 0.0f)
                     .infoWindowAnchor(0.5f, 0.0f)
 //                    .title(Integer.toString(mCoinItems.get(i).id))
                     .snippet(Integer.toString(mCoinItems.get(i).id));
-            MarkerView mv = mapbox.addMarker(coin);
-            mv.setAnchor(0.5f, 0.0f);
+            Marker mv = mapbox.addMarker(coin);
+//            Marker marker = mapbox.addMarker(mv);
         }
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        map.onStart();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        map.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        map.onPause();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        map.onStop();
-    }
-
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-        map.onLowMemory();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        map.onDestroy();
     }
 
     @Override

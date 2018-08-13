@@ -72,7 +72,7 @@ public class WalletScreen extends AbstractActivity {
         close_wallet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CustomerMapViewActivity.class);
+                Intent intent = new Intent(getApplicationContext(), CustomerMapActivity.class);
                 if(backIntent.equals("Coin")){
                     intent = new Intent(getApplicationContext(), CoinActivity.class);
                 }

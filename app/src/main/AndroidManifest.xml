@@ -237,11 +237,6 @@
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Activities.CustomerVenueViewActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
             android:name=".Activities.CoinActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
@@ -307,18 +302,24 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".Activities.CoinCollectActivity"
+        <activity
+            android:name=".Activities.CoinCollectActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".Activities.CoinBreakActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Activities.CoinBreakActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".Activities.CoinDrivingActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Activities.CoinDrivingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Activities.CustomerMapActivity"
+            android:label="@string/title_activity_venue_map"></activity>
     </application>
 
 </manifest>

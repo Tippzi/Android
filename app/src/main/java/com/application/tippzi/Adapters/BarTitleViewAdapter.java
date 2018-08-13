@@ -8,10 +8,10 @@ import android.widget.TextView;
 
 import com.application.tippzi.Global.GD;
 import com.application.tippzi.R;
+import com.google.android.gms.maps.GoogleMap;
 import com.mapbox.mapboxsdk.annotations.Marker;
-import com.mapbox.mapboxsdk.maps.MapboxMap;
 
-public class BarTitleViewAdapter implements MapboxMap.InfoWindowAdapter {
+public class BarTitleViewAdapter implements GoogleMap.InfoWindowAdapter {
     LayoutInflater inflater = null;
     private TextView textViewTitle;
 
@@ -20,8 +20,7 @@ public class BarTitleViewAdapter implements MapboxMap.InfoWindowAdapter {
     }
 
     @Override
-    public View getInfoWindow(Marker marker) {
-
+    public View getInfoWindow(com.google.android.gms.maps.model.Marker marker) {
         View v = inflater.inflate(R.layout.bar_title_location_default, null);
         if (marker != null) {
             textViewTitle = v.findViewById(R.id.tv_bar_name);
@@ -42,7 +41,8 @@ public class BarTitleViewAdapter implements MapboxMap.InfoWindowAdapter {
         return (v);
     }
 
-    public View getInfoContents(Marker marker) {
-        return (null);
+    @Override
+    public View getInfoContents(com.google.android.gms.maps.model.Marker marker) {
+        return null;
     }
 }

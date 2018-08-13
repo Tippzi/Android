@@ -7,8 +7,8 @@ import com.application.tippzi.Fragments.CustomerMapViewFragment;
 import com.application.tippzi.Models.GalleryModel;
 import com.application.tippzi.Models.LocationModel;
 import com.application.tippzi.Service.MapViewPager;
-import com.mapbox.mapboxsdk.camera.CameraPosition;
-import com.mapbox.mapboxsdk.geometry.LatLng;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
 
 
 import java.util.ArrayList;
@@ -73,7 +73,7 @@ public class CustomerMapViewAdapter extends MapViewPager.MultiAdapter {
     }
 
     @Override
-    public List<CameraPosition> getCameraPositions(int page) {
+    public CameraPosition getCameraPositions(int page) {
         List<CameraPosition> result = new ArrayList<>();
         CameraPosition results
                 =  new CameraPosition.Builder().target(resultlocation.get(page).location_info).zoom(14.0f)
@@ -81,6 +81,6 @@ public class CustomerMapViewAdapter extends MapViewPager.MultiAdapter {
                 .tilt(0)
                 .build();
         result.add(results);
-        return result;
+        return results;
     }
 }

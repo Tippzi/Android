@@ -200,7 +200,7 @@ public class CustomerBarDetailActivity extends AbstractActivity implements Swipe
         bardetail_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), CustomerMapViewActivity.class);
+                Intent intent = new Intent(getApplicationContext(), CustomerMapActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 overridePendingTransition(R.anim.back_left_out, R.anim.back_right_in);
@@ -257,7 +257,7 @@ public class CustomerBarDetailActivity extends AbstractActivity implements Swipe
             public void onClick(View view) {
                 count_engagement = count_engagement + 1;
                 if (!business_address.getText().toString().equals("")) {
-                    Intent intent = new Intent(getApplicationContext(), CustomerMapViewActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), CustomerMapActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     overridePendingTransition(R.anim.back_left_out, R.anim.back_right_in);
@@ -567,7 +567,7 @@ public class CustomerBarDetailActivity extends AbstractActivity implements Swipe
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(getApplicationContext(), CustomerMapViewActivity.class);
+        Intent intent = new Intent(getApplicationContext(), CustomerMapActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         overridePendingTransition(R.anim.back_left_out, R.anim.back_right_in);

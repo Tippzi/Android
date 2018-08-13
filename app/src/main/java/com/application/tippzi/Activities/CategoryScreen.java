@@ -103,7 +103,7 @@ public class CategoryScreen extends AbstractActivity {
             if (GD.barModels.size() == 0) {
                 Toast.makeText(getApplicationContext(), "There are not bars in this category.", Toast.LENGTH_LONG).show();
             } else {
-                Intent backintent = new Intent(getApplicationContext(), CustomerMapViewActivity.class);
+                Intent backintent = new Intent(getApplicationContext(), CustomerMapActivity.class);
                 backintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(backintent);
                 overridePendingTransition(R.anim.forward_right_in, R.anim.forward_left_out);

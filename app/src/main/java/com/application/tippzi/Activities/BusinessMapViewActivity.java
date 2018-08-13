@@ -16,9 +16,9 @@ import com.application.tippzi.Models.LocationModel;
 import com.application.tippzi.R;
 import com.application.tippzi.Service.MapViewPager;
 import com.application.tippzi.until.Utils;
-import com.mapbox.mapboxsdk.Mapbox;
-import com.mapbox.mapboxsdk.geometry.LatLng;
-import com.mapbox.mapboxsdk.maps.MapView;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 
@@ -29,7 +29,8 @@ public class BusinessMapViewActivity extends AbstractActivity implements MapView
     private ImageView iv_back ;
     private MapViewPager mvp;
     private int select_pos ;
-    private MapView map;
+    private GoogleMap map;
+    SupportMapFragment mapFragment;
     private Bundle savebundle ;
     private FloatingActionButton FAB ;
 
@@ -38,8 +39,8 @@ public class BusinessMapViewActivity extends AbstractActivity implements MapView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_mapview);
 
-        Mapbox.getInstance(this, "pk.eyJ1IjoicGV0ZXJwYW5tYXBib3giLCJhIjoiY2plcjJkN2QyMGFwZjJ3cGFuYnR6cDFoZSJ9.4U_mCCQ9LpUXKcQQb2NNuw");
-        map = findViewById(R.id.map1);
+//        Mapbox.getInstance(this, "pk.eyJ1IjoicGV0ZXJwYW5tYXBib3giLCJhIjoiY2plcjJkN2QyMGFwZjJ3cGFuYnR6cDFoZSJ9.4U_mCCQ9LpUXKcQQb2NNuw");
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         savebundle = savedInstanceState ;
 
         viewPager = findViewById(R.id.viewPager);
@@ -101,7 +102,7 @@ public class BusinessMapViewActivity extends AbstractActivity implements MapView
             select_pos = GD.select_pos ;
         }
         mvp = new MapViewPager.Builder(this)
-                .mapFragment(map)
+                .mapFragment(mapFragment)
                 .viewPager(viewPager)
                 .LoadBundle(savebundle)
                 .position(select_pos)
@@ -145,45 +146,9 @@ public class BusinessMapViewActivity extends AbstractActivity implements MapView
         finish();
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        map.onStart();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        map.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        map.onPause();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        map.onStop();
-    }
-
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-        map.onLowMemory();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        map.onDestroy();
-    }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        map.onSaveInstanceState(outState);
     }
 }

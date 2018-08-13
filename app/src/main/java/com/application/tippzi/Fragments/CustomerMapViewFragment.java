@@ -30,8 +30,8 @@ import com.application.tippzi.Models.WalletModel;
 import com.application.tippzi.R;
 import com.application.tippzi.Service.RoundedImageView;
 import com.application.tippzi.swipeview.SwipeAdapterView;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
-import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;

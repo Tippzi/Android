@@ -23,7 +23,7 @@ import com.application.tippzi.Global.GD;
 import com.application.tippzi.Models.DealModel;
 import com.application.tippzi.R;
 import com.application.tippzi.swipeview.SwipeAdapterView;
-import com.mapbox.mapboxsdk.geometry.LatLng;
+import com.google.android.gms.maps.model.LatLng;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

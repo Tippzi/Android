@@ -8,13 +8,11 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -94,7 +92,7 @@ public class CustomerDashboardScreen extends AbstractActivity implements
                 if (GD.customerModel.bars.size() == 0) {
                     Toast.makeText(getApplicationContext(), "There are not bars.", Toast.LENGTH_LONG).show();
                 } else {
-                    Intent intent = new Intent(getApplicationContext(), CustomerMapViewActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), CustomerMapActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     overridePendingTransition(R.anim.forward_right_in, R.anim.forward_left_out);

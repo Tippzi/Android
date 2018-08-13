@@ -1,7 +1,7 @@
 package com.application.tippzi.Models;
 
 
-import com.mapbox.mapboxsdk.geometry.LatLng;
+import com.google.android.gms.maps.model.LatLng;
 
 /**
  * Created by E on 10/20/2017.

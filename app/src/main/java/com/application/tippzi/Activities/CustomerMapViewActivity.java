@@ -430,7 +430,7 @@ public class CustomerMapViewActivity extends AbstractActivity implements MapView
                 latitude = 0;
                 longitude = 0;
             }
-            locationModel.location_info = new LatLng(latitude, longitude);
+//            locationModel.location_info = new LatLng(latitude, longitude);
             if (barModelArrayList.get(i).deals.size() == 0) {
                 locationModel.deal_title = "This bar did not create any deals.";
             } else {
@@ -463,7 +463,7 @@ public class CustomerMapViewActivity extends AbstractActivity implements MapView
             mvp.refreshOnSearch(new CustomerMapViewAdapter(getSupportFragmentManager(), locationModelArrayList));
         } else {
             mvp = new MapViewPager.Builder(this)
-                    .mapFragment(map)
+//                    .mapFragment(map.)
                     .viewPager(viewPager)
                     .LoadBundle(savebundle)
                     .position(GD.select_pos)

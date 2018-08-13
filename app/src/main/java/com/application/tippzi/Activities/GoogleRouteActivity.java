@@ -93,7 +93,7 @@ public class GoogleRouteActivity extends FragmentActivity {
                 mo = createMarkerOptions(new LatLng(mGPS.getLatitude(), mGPS.getLongitude()), "My Location", "select");
 
                 LayoutInflater inflater = LayoutInflater.from(GoogleRouteActivity.this);
-                mapboxMap.setInfoWindowAdapter(new BarTitleViewAdapter(inflater));
+                //q//mapboxMap.setInfoWindowAdapter(new BarTitleViewAdapter(inflater));
                 mapboxMap.setCameraPosition(results1);
                 mapboxMap.setZoom(15);
                 mapboxMap.addMarker(mo1).setInfoWindowAnchor(0.5f, 0.0f);

@@ -25,4 +25,5 @@
     <string name="endpoint">http://ip-api.com/json</string>
 
     <string name="server_client_id">295397127329-qou1nokfnupvoc2f7l6m4lrotrspkmm4.apps.googleusercontent.com</string>
+    <string name="title_activity_venue_map">Map</string>
 </resources>
